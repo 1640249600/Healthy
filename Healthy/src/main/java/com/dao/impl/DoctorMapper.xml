@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!--dao实现类  namespace一定写的是接口的名字  -->
+  <mapper namespace="com.dao.DoctorDao">
+  	<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
+  	
+  											<!-- 没有定义别名就必须为com.po.User -->
+  		<select id="getAllDoctor"  resultType="doctor">
+  				select * from doctorlist
+  		</select>
+  
+  </mapper>

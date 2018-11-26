@@ -1,0 +1,260 @@
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'west',border:true,split:true," title="閸掑棛琚粻锛勬倞" style="width:150px; padding:5px;">
+        <ul id="wu-category-tree" class="easyui-tree"></ul>
+    </div>
+    <div data-options="region:'center',border:false">
+    	<!-- Begin of toolbar -->
+        <div id="wu-toolbar">
+            <div class="wu-toolbar-button">
+               <a href="#" class="easyui-linkbutton" iconCls="icon-add" onclick="openAdd()" plain="true">澧炲姞</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-edit" onclick="openEdit()" plain="true">淇敼</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-remove" onclick="remove()" plain="true">鍒犻櫎</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="cancel()" plain="true">鍙栨秷</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-reload" onclick="reload()" plain="true">鍒锋柊</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-print" onclick="openAdd()" plain="true">鎵撳嵃</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-help" onclick="openEdit()" plain="true">甯姪</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-undo" onclick="remove()" plain="true">鎾ら攢</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-redo" onclick="cancel()" plain="true">閲嶅仛</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-sum" onclick="reload()" plain="true">鎬昏</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-back" onclick="reload()" plain="true">杩斿洖</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-tip" onclick="reload()" plain="true">鎻愮ず</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-save" onclick="reload()" plain="true">淇濆瓨</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-cut" onclick="reload()" plain="true">鍓垏</a>
+        </div>
+            <div class="wu-toolbar-search">
+               <label>璧峰鏃堕棿</label><input class="easyui-datebox" style="width:100px">
+            <label>缁撴潫鏃堕棿</label><input class="easyui-datebox" style="width:100px">
+            <label>vip绛夌骇</label> 
+            <select class="easyui-combobox" panelHeight="auto" style="width:100px">
+                <option value="0">鍋ュ悍浼氬憳</option>
+                <option value="1">鍩虹浼氬憳</option>
+                <option value="2">閲戝崱浼氬憳</option>
+                <option value="3">閽荤煶鍗′細鍛�</option>
+                 <option value="3">鐧介噾鍗′細鍛�</option>
+            </select>
+            <label>鍏抽敭璇�</label><input class="wu-text" style="width:100px">
+            <a href="#" class="easyui-linkbutton" iconCls="icon-search">寮�濮嬫悳绱�</a>
+        </div>
+        </div>
+        <!-- End of toolbar -->
+        <table id="wu-datagrid" toolbar="#wu-toolbar"></table>
+    </div>
+</div>
+<!-- Begin of easyui-dialog -->
+<div id="wu-dialog" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:400px; padding:10px;">
+	<form id="wu-form" method="post">
+        <table>
+            <tr>
+                <td width="80" align="right">鍖荤敓濮撳悕:</td>
+                <td><input type="text" name="name" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">鑱旂郴閭:</td>
+                <td><input type="text" name="email" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">涓绘不绉戝:</td>
+                <td><input type="text" name="subject" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td valign="top" align="right">璇︾粏淇℃伅:</td>
+                <td><textarea name="content" rows="6" class="wu-textarea" style="width:260px"></textarea></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<!-- End of easyui-dialog -->
+<script type="text/javascript">
+	/**
+	* Name 鏉炶棄鍙嗛懣婊冨礋閺嶏拷
+	*/
+	$('#wu-category-tree').tree({
+		url:'<%=path%>/static/temp/menu.php',
+		onClick:function(node){
+			alert(node.text);
+		}
+	});
+
+	/**
+	* Name 濞ｈ濮炵拋鏉跨秿
+	*/
+	function add(){
+		$('#wu-form').form('submit', {
+			url:'',
+			success:function(data){
+				if(data){
+					$.messager.alert('娣诲姞淇℃伅','info');
+					$('#wu-dialog').dialog('close');
+				}
+				else
+				{
+					$.messager.alert('娣団剝浼呴幓鎰仛','閹绘劒姘︽径杈Е閿涳拷','info');
+				}
+			}
+		});
+	}
+	
+	/**
+	* Name 娣囶喗鏁肩拋鏉跨秿
+	*/
+	function edit(){
+		$('#wu-form').form('submit', {
+			url:'',
+			success:function(data){
+				if(data){
+					$.messager.alert('纭畾','info');
+					$('#wu-dialog').dialog('close');
+				}
+				else
+				{
+					$.messager.alert('鍙栨秷','info');
+				}
+			}
+		});
+	}
+	
+	/**
+	* Name 閸掔娀娅庣拋鏉跨秿
+	*/
+	function remove(){
+		$.messager.confirm('鍒犻櫎淇℃伅','鍒犻櫎杩欏垯娑堟伅', function(result){
+			if(result){
+				var items = $('#wu-datagrid').datagrid('getSelections');
+				var ids = [];
+				$(items).each(function(){
+					ids.push(this.productid);	
+				});
+				//alert(ids);return;
+				$.ajax({
+					url:'',
+					data:'',
+					success:function(data){
+						if(data){
+							$.messager.alert('纭畾','info');		
+						}
+						else
+						{
+							$.messager.alert('鍙栨秷','info');		
+						}
+					}	
+				});
+			}	
+		});
+	}
+	
+	/**
+	* Name 閹垫挸绱戝ǎ璇插缁愭褰�
+	*/
+	function openAdd(){
+		$('#wu-form').form('clear');
+		$('#wu-dialog').dialog({
+			closed: false,
+			modal:true,
+            title: "娣诲姞淇℃伅",
+            buttons: [{
+                text: '纭畾',
+                iconCls: 'icon-ok',
+                handler: add
+            }, {
+                text: '鍙栨秷',
+                iconCls: 'icon-cancel',
+                handler: function () {
+                    $('#wu-dialog').dialog('close');                    
+                }
+            }]
+        });
+	}
+	
+	/**
+	* Name 閹垫挸绱戞穱顔芥暭缁愭褰�
+	*/
+	function openEdit(){
+		$('#wu-form').form('clear');
+		var item = $('#wu-datagrid').datagrid('getSelected');
+		//alert(item.productid);return;
+		$.ajax({
+			url:'',
+			data:'',
+			success:function(data){
+				if(data){
+					$('#wu-dialog').dialog('close');	
+				}
+				else{
+					//缂佹垵鐣鹃崐锟�
+					$('#wu-form').form('load', data)
+				}
+			}	
+		});
+		$('#wu-dialog').dialog({
+			closed: false,
+			modal:true,
+            title: "鍒犻櫎",
+            buttons: [{
+                text: '纭畾',
+                iconCls: 'icon-ok',
+                handler: edit
+            }, {
+                text: '鍙栨秷',
+                iconCls: 'icon-cancel',
+                handler: function () {
+                    $('#wu-dialog').dialog('close');                    
+                }
+            }]
+        });
+	}	
+	
+	/**
+	* Name 閸掑棝銆夋潻鍥ㄦ姢閸ｏ拷
+	*/
+	function pagerFilter(data){            
+		if (typeof data.length == 'number' && typeof data.splice == 'function'){// is array                
+			data = {                   
+				total: data.length,                   
+				rows: data               
+			}            
+		}        
+		var dg = $(this);         
+		var opts = dg.datagrid('options');          
+		var pager = dg.datagrid('getPager');          
+		pager.pagination({                
+			onSelectPage:function(pageNum, pageSize){                 
+				opts.pageNumber = pageNum;                   
+				opts.pageSize = pageSize;                
+				pager.pagination('refresh',{pageNumber:pageNum,pageSize:pageSize});                  
+				dg.datagrid('loadData',data);                
+			}          
+		});           
+		if (!data.originalRows){               
+			data.originalRows = (data.rows);       
+		}         
+		var start = (opts.pageNumber-1)*parseInt(opts.pageSize);          
+		var end = start + parseInt(opts.pageSize);        
+		data.rows = (data.originalRows.slice(start, end));         
+		return data;       
+	}
+	
+	/**
+	* Name 鏉炶棄鍙嗛弫鐗堝祦
+	*/
+	$('#wu-datagrid').datagrid({
+		url:'<%=path%>/static/temp/datagrid.php',
+		loadFilter:pagerFilter,		
+		rownumbers:true,
+		singleSelect:false,
+		pageSize:20,           
+		pagination:true,
+		multiSort:true,
+		fitColumns:true,
+		fit:true,
+		columns:[[
+			{ checkbox:true},
+			{ field:'productid',title:'productid',width:100,sortable:true},
+			{ field:'productname',title:'productname',width:180,sortable:true},
+			{ field:'unitcost',title:'unitcost',width:100},
+			{ field:'listprice',title:'listprice',width:100},
+			{ field:'attr1',title:'attr1',width:100},
+			{ field:'itemid',title:'itemid',width:100},
+			{ field:'status',title:'status',width:100}
+		]]
+	});
+</script>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!--dao实现类  namespace一定写的是接口的名字  -->
+  <mapper namespace="com.dao.VBuyDao">
+  		<resultMap type="vbuy" id="vbuyList">
+  				<result column="id" property="id"></result>
+  				<result column="grade" property="grade"></result>
+  				<result column="sixPrice" property="sixPrice"></result>
+  				<result column="twelvePrivce" property="twelvePrivce"></result>
+  				<result column="twentyfourPrice" property="twentyfourPrice"></result>
+  				<result column="thirtysixPrice" property="thirtysixPrice"></result>
+  				<result column="discount" property="discount"></result>
+  				
+  				<association property="zhuangtai" javaType="ZT">
+  					<result column="zid" property="zid"></result>
+  					<result column="state" property="state"></result> 				
+  				</association>
+		
+  		</resultMap>
+  
+  
+  	<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
+  	
+  											<!-- 没有定义别名就必须为com.po.User -->
+  		<select id="getAllVbuy"  resultMap="vbuyList">
+  				select * from vbuy v left join zhuangtai z on v.zid = z.zid
+  		</select>
+  		<select id="findCount"  resultType="int">
+  				select count(1) from vbuy
+  		</select>
+  </mapper>
