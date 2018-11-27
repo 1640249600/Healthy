@@ -20,6 +20,10 @@ public class VipAction {
 		
 		return "Vip";
 	}
-	
+	//跳转用户页面
+	@RequestMapping("toUsers")
+	public String toUsers(){
+		return "Users";
+	}
 	
 }
