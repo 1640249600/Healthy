@@ -11,8 +11,11 @@ public interface VBuyDao {
 	
 	public int findCount();
 	//添加22
-	public boolean VbuySave(VBuy vv);
+	public boolean vBuySave(VBuy vv);
 	//删除
-	public boolean VbuyDel(@Param(value="id")int id);
+	public boolean vBuyDel(@Param(value="id")int id);
+	//修改
+	public VBuy vBuyUp(@Param(value="id")int id);
+	public boolean vBuyUpdate(VBuy vv);
 	
 }

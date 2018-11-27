@@ -62,6 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a href="#" class="easyui-linkbutton" iconCls="icon-search">开始搜索</a>
         </div>
      </div>
+     
 </div>
     </body>
 <script type="text/javascript">

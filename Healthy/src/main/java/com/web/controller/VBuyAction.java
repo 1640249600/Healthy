@@ -53,7 +53,7 @@ public class VBuyAction {
 	@RequestMapping("/VbuySave")
 	@ResponseBody
 	public String Vsave(HttpServletRequest request,@ModelAttribute(value="vv") VBuy vv){
-		boolean falg = vbuyService.VbuySave(vv);		
+		boolean falg = vbuyService.vBuySave(vv);		
 		if (falg) {
 			return "true";
 		}else {
@@ -69,7 +69,7 @@ public class VBuyAction {
 		System.out.println(uid);
 		boolean	xx = false;
 		for (int i = 0; i < uid.length; i++) {
-		xx = vbuyService.VbuyDel(Integer.parseInt(uid[i]));
+		xx = vbuyService.vBuyDel(Integer.parseInt(uid[i]));
 		}
 		if (xx) {
 			return "true";
@@ -77,4 +77,32 @@ public class VBuyAction {
 			return "false";
 		}
 	}
+	@RequestMapping("/VbuyUp")	
+	@ResponseBody
+	public String VbuyUp(HttpServletRequest request,@RequestParam(value="id",required=false) String id) throws Exception {
+		System.out.println(id);		
+		VBuy v = vbuyService.vBuyUp(Integer.parseInt(id));
+		JSONObject obj=new JSONObject();
+		obj.put("id", v.getId());
+		obj.put("grade", v.getGrade());
+		obj.put("zid", v.getZid());
+		System.out.println(obj.toString());
+		return obj.toString();		
+	}
+	
+	@RequestMapping("/VbuyUpdate")	
+	@ResponseBody
+	public String VbuyUpdate(HttpServletRequest request,@ModelAttribute(value="vv") VBuy vv) throws Exception {
+		boolean	xx = false;
+		System.out.println(vv.getZid()+"=="+vv.getGrade()+"=="+vv.getId());
+		xx = vbuyService.vBuyUpdate(vv);
+		
+		if (xx) {
+			return "true";
+		}else {
+			return "false";
+		}
+		
+	}
+	
 }

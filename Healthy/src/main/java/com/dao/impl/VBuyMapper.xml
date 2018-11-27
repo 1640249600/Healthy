@@ -34,12 +34,24 @@
   		<select id="findCount"  resultType="int">
   				select count(1) from vbuy
   		</select>
-  		
-  		<insert id="VbuySave" parameterType="vbuy">
+  		<!-- 添加 -->
+  		<insert id="vBuySave" parameterType="vbuy">
   				insert into vbuy (id,grade,zid) values (seq_Vbuy.nextval,#{grade},#{zid})
   		
   		</insert>
-  		<delete id="VbuyDel" parameterType="int">
+  		<!-- 删除 -->
+  		<delete id="vBuyDel" parameterType="int" >
   				delete from vbuy where id=#{id}
   		</delete>
+  		<!-- 修改 -->
+  		<select id="vBuyUp" parameterType="int" resultType="vbuy">
+  				select * from vbuy where id= #{id} 		
+  		</select>
+  		 
+  		<update id="vBuyUpdate" parameterType="vbuy">
+  				update vbuy set grade=#{grade},zid=#{zid} where id=#{id}
+  		</update>
+  		
+  	
+  		
   </mapper>
