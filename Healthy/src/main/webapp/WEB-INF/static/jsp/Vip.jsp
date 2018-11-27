@@ -29,18 +29,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<!-- Begin of toolbar -->
         <div id="wu-toolbar">
             <div class="wu-toolbar-button">
-               	<a href="#" class="easyui-linkbutton" iconCls="icon-add" id="openAdd" plain="true">添加</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-edit" id="openEdit" plain="true">修改</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-remove" id="remove" plain="true">删除</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" id="cancel1" plain="true">取消</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-reload" id="reload2" plain="true">刷新</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-print" id="openAdd3" plain="true">帮助</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-help" id="openEdit4" plain="true">撤销</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-undo" id="remove5" plain="true">重做</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-redo" id="cancel6" plain="true">总计</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-sum" id="reload7" plain="true">提示</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-back" id="reload8" plain="true">保存</a>
-	            <a href="#" class="easyui-linkbutton" iconCls="icon-tip" id="reload9" plain="true">剪切</a>
+               	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" id="openAdd" plain="true">添加</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" id="openEdit" plain="true">修改</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" id="remove" plain="true">删除</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" id="cancel1" plain="true">取消</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" id="reload2" plain="true">刷新</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-print" id="openAdd3" plain="true">帮助</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-help" id="openEdit4" plain="true">撤销</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-undo" id="remove5" plain="true">重做</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-redo" id="cancel6" plain="true">总计</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-sum" id="reload7" plain="true">提示</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-back" id="reload8" plain="true">保存</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-tip" id="reload9" plain="true">剪切</a>
         	</div>
            
         </div>
@@ -53,14 +53,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     data-options="iconCls:'icon-save',mpdal:true,closed:true">
     <form id="formAdd" method="post">
     	<table cellSpacing=0 cellPadding=5 border=0>
+    		
     		<tr>
-    			<td>员工职责</td>
-    			<td>
-    				<input class="textbox" id="sChannel2" style="width:180px" maxLength=50 name="job"/>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td>员工名称</td>
+    			<td>VIP名称</td>
     			<td>
     				<input class="textbox" id="sChannel2" style="width:180px" maxLength=50 name="grade"/>
     			</td>
@@ -69,14 +64,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<td>状态</td>
     			<td>
     				<select name="zid" class=text>					
-					<option  value="0" >已使用</option>
+					<option  value="1" >已使用</option>
 					<option  value="0" >暂停使用</option>					
 					</select>
     			</td>
     		</tr>
     		<tr>
-    			<td rowspan=2>
+    			<td>
 					<button id="customerBtn" type="button">保存</button>
+				</td>
+				<td>
+					<button id="customerBtnQ" type="button">取消</button>
 				</td>
     		</tr>
     	</table>    
@@ -85,21 +83,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
   		$(function(){
   			$("#VIPTab").datagrid({
-  				url:"findAll",
+  				url:"VbuyFindAll",
   				columns:[[
-  				
-  					{field:'grade',title:'会员',width:200,align:'center'},
-  					{field:'state',title:'状态',width:200,align:'center'},
-  					{field:'xxxxx',title:'操作',width:200,align:'center',
-  						formatter:function(value,row,index){
-  							return "<a href='' id='upadate'>修改</a>|<a href='' id='delete'>删除</a>";
-  						}
-  					}
+  					{field:'ck',width:50,checkbox:true},
+  					{field:'id',title:'vip名称',width:300,align:'center'},
+  					{field:'grade',title:'vip名称',width:300,align:'center'},
+  					{field:'state',title:'状态',width:300,align:'center'},
+  					
   				]],
+  				idField:'id',//创建表格必须加上;
   				//显示斑马线效果
   				striped:true,
   				//一页记录数
-  				pageSize:3,
+  				pageSize:10,
   				//显示分页工具栏
   				pagination:true,
   				//初始化页数
@@ -110,38 +106,93 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				pageList:[3,5,10]
  			
   			});
+  			
+  			//添加
 	  	$("#openAdd").click(function(){
 	  	
 	  			$("#VIP_win").window("open");	  	
 	  	});	
 	  	
-  		$("#customerBtnQ").click(function(){
+  		$("#customerBtn").click(function(){
 				// 提交数据到Action
-				 alert("xxxxxxxx");  
-				$('#formAdd').form('submit', {    
-				    url:"customer_save",
-				         
-				    success:function(data){    
-				        // data是字符串类型
-				        // "alert('')"
-				        var jsonData = eval("("+data+")");
-				        $.messager.show({
-				        	title:'提示消息',
-				        	msg:jsonData.msg,
-				        	timeout:3000,
-				        	showType:'slide'
-				        });
+				 
+				 $.ajax({
+						type: 'post' ,
+						url: "VbuySave",
+						cache:false ,
+						data:$('#formAdd').serialize() ,
+						dataType:'json' ,
+						success:function(result){ 
+				    
+					        $.messager.alert({
+					        	title:'提示消息',
+					        	msg:"添加成功",
+					        	timeout:3000,
+					        	showType:'slide'
+					        	});
+					     },
+					     error:function(result){
+							$.meesager.alert({
+								title:'提示消息' , 
+								msg:"添加失败",
+					        	timeout:3000,
+					        	showType:'slide'
+							});
+						}
+				    });
 				        
 				     	// 关闭窗口
 						$("#VIP_win").window("close");
 						// 表格重新加载
 						$("#VIPTab").datagrid("reload");
-				    }    
-				}); 
+				      
+				 
 			});
 			$("#customerBtnQ").click(function(){
 				$("#VIP_win").window("close");
 			});
-  		});
+			
+			//删除
+			$("#remove").click(function(){
+					var arr =$('#VIPTab').datagrid('getSelections');
+					alert(arr);
+							if(arr.length < 1){
+								$.messager.alert({
+									title:'提示信息!',
+									msg:'必須选择一行及以上数据进行刪除!'
+										});
+							}else{
+							$.messager.confirm('提示信息' , '确认删除?' , function(r){
+									if(r){
+											var ids = '';
+											for(var i =0 ;i<arr.length;i++){
+												ids += arr[i].id + ',' ;
+											}
+											ids = ids.substring(0 , ids.length-1);
+											$.post('<%=path%>/Vbuydel' , {id:ids} , function(result){
+												//1 刷新数据表格 
+												$('#VIPTab').datagrid('reload');
+												//2 清空idField   
+												$('#VIPTab').datagrid('unselectAll');
+												//3 给提示信息 
+												$.messager.alert({
+													title:'提示信息!' , 
+													msg:'删除成功!'
+												});
+											});
+									} else {
+										$.messager.alert({
+											title:'提示信息!' , 
+											msg:'删除失败!'
+										});
+									}
+							});
+							
+							
+							}
+										
+			});
+			
+ });
 </script>
 </html>

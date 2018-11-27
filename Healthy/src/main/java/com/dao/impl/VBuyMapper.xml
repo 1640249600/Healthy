@@ -25,10 +25,21 @@
   	<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
   	
   											<!-- 没有定义别名就必须为com.po.User -->
-  		<select id="getAllVbuy"  resultMap="vbuyList">
-  				select * from vbuy v left join zhuangtai z on v.zid = z.zid
+  		<select id="getAllVbuy"  resultMap="vbuyList" parameterType="int">
+  				select id,grade,state from 
+				(select v.*,z.*,rownum rownum_ from vbuy v left join 
+				zhuangtai z on v.zid = z.zid where rownum &lt;= #{page} * #{rows})
+				where rownum_ &gt; (#{page} -  1) * #{rows}
   		</select>
   		<select id="findCount"  resultType="int">
   				select count(1) from vbuy
   		</select>
+  		
+  		<insert id="VbuySave" parameterType="vbuy">
+  				insert into vbuy (id,grade,zid) values (seq_Vbuy.nextval,#{grade},#{zid})
+  		
+  		</insert>
+  		<delete id="VbuyDel" parameterType="int">
+  				delete from vbuy where id=#{id}
+  		</delete>
   </mapper>

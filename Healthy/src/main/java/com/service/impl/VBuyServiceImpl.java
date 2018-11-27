@@ -25,16 +25,30 @@ public class VBuyServiceImpl implements VBuyService {
 		this.vbuyDao = vbuyDao;
 	}
 
-	@Override
-	public List<VBuy> getAllVbuy() {
-		// TODO Auto-generated method stub
-		return vbuyDao.getAllVbuy();
-	}
-
+	
+//分页
 	@Override
 	public int findCount() {
 		// TODO Auto-generated method stub
 		return vbuyDao.findCount();
+	}
+
+	@Override
+	public List<VBuy> getAllVbuy(int page, int rows) {
+		// TODO Auto-generated method stub
+		return vbuyDao.getAllVbuy(page, rows);
+	}
+//添加
+	@Override
+	public boolean VbuySave(VBuy vv) {
+		// TODO Auto-generated method stub
+		return vbuyDao.VbuySave(vv);
+	}
+
+	@Override
+	public boolean VbuyDel(int id) {
+		// TODO Auto-generated method stub
+		return vbuyDao.VbuyDel(id);
 	}
 
 }

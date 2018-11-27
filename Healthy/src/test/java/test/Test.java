@@ -24,14 +24,32 @@ public class Test {
 	}
 	public void getAllVBuy(){
 		VBuyService vv = (VBuyService) ctx.getBean("vbuyService");
-		List<VBuy>  xx = vv.getAllVbuy();
+		List<VBuy>  xx = vv.getAllVbuy(1,2);
 				for (VBuy ds : xx) {
 					System.out.println(ds.getZhuangtai().getState());
+					System.out.println(ds.getGrade());
+					System.out.println(ds.getId());
 				}
-		
-		
 
 	}	
+	public void VbuySave(){
+		VBuyService vv = (VBuyService) ctx.getBean("vbuyService");
+		VBuy aa = new VBuy();
+		aa.setGrade("aaa");
+		aa.setZid(0);
+		
+		boolean  xx = vv.VbuySave(aa);
+				System.out.println(xx);
+
+	}
+	public void VbuyDel(){
+		VBuyService vv = (VBuyService) ctx.getBean("vbuyService");
+		
+		
+		boolean  xx = vv.VbuyDel(13);
+				System.out.println(xx);
+
+	}
 		
 	public static void main(String[] args) {
 		Test tt = new Test();

@@ -3,9 +3,12 @@ package com.web.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONArray;
@@ -26,15 +29,18 @@ public class VBuyAction {
 		this.vbuyService = vbuyService;
 	}
 
-	@RequestMapping("/findAll")
+	@RequestMapping("/VbuyFindAll")
 	@ResponseBody
-	public String findAll(){
-		List<VBuy> vv = vbuyService.getAllVbuy();
+	public String findAll(@RequestParam(value="page",required=false) String page,@RequestParam(value="rows",required=false) String rows){
+		
+		System.out.println(page+"---"+rows);
+		List<VBuy> vv = vbuyService.getAllVbuy(Integer.parseInt(page),Integer.parseInt(rows));
 		System.out.println("这是ACTION层+遍历");
 		
 		JSONArray array = new JSONArray();
 		for (VBuy v : vv) {
 			JSONObject obj=new JSONObject();
+			obj.put("id", v.getId());
 			obj.put("grade", v.getGrade());
 			obj.put("state", v.getZhuangtai().getState());
 			array.add(obj);
@@ -42,5 +48,33 @@ public class VBuyAction {
 		int total=vbuyService.findCount();
 		String ul= "{\"total\":"+total+",\"rows\":"+array.toString()+"}";
 		return ul;
+	}
+	
+	@RequestMapping("/VbuySave")
+	@ResponseBody
+	public String Vsave(HttpServletRequest request,@ModelAttribute(value="vv") VBuy vv){
+		boolean falg = vbuyService.VbuySave(vv);		
+		if (falg) {
+			return "true";
+		}else {
+			return "false";
+		}
+		
+	}
+	@RequestMapping("/Vbuydel")	
+	@ResponseBody
+	public String Vbuydel(HttpServletRequest request,@RequestParam(value="id",required=false) String id) throws Exception {
+		System.out.println(id);
+		String[] uid=id.split(",");
+		System.out.println(uid);
+		boolean	xx = false;
+		for (int i = 0; i < uid.length; i++) {
+		xx = vbuyService.VbuyDel(Integer.parseInt(uid[i]));
+		}
+		if (xx) {
+			return "true";
+		}else {
+			return "false";
+		}
 	}
 }

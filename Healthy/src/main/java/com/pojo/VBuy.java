@@ -16,6 +16,13 @@ public class VBuy {
 		private Integer twentyfourPrice;
 		private Integer thirtysixPrice;
 		private Integer discount;
+		private Integer zid;
+		public Integer getZid() {
+			return zid;
+		}
+		public void setZid(Integer zid) {
+			this.zid = zid;
+		}
 		private Date time;
 		//针对日期属性
 		@DateTimeFormat(pattern="yyyy-MM-dd")//强制要求日期格式
