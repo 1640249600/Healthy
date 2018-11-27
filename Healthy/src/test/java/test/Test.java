@@ -6,7 +6,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.pojo.VBuy;
-import com.pojo.doctorlist;
 import com.service.VBuyService;
 
 public class Test {
