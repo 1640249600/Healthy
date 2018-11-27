@@ -11,7 +11,8 @@ import com.service.VBuyService;
 public class Test {
 	ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 	
-	
+	/*谁谁谁谁谁谁撒、
+	*/
 	public void getAllVBuy(){
 		VBuyService vv = (VBuyService) ctx.getBean("vbuyService");
 		List<VBuy>  xx = vv.getAllVbuy(1,2);
