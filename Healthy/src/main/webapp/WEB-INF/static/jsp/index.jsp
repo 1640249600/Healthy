@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>大手托小手健康守护系统</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%=path %>/static/themes/default/easyui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=path %>/static/css/wu.css" />
@@ -38,18 +38,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div data-options="region:'north',title:'导航菜单',split:false" style="height:100px;width:150px"></div>   
 	    <div data-options="region:'west',title:'服务管理',split:false" style="width:100px;width:150px">
 	    	<div id="aa" class="easyui-accordion" fit="true" >   
-			    <div title="VIP管理" data-options="iconCls:'icon-reload',selected:true" style="overflow:auto;padding:10px;">   
-			         <a href="<%=path %>/vip" class="menuA">客户管理</a>
-			         
+			    <div title="服务管理" data-options="iconCls:'icon-application-cascade'" style="overflow:auto;padding:10px;">   
+			         <ul class="easyui-tree wu-side-tree">
+			         <li><a href="<%=path %>/vip" class="menuA">客户管理</a></li>
+			         <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-2.html" iframe="0">vip购买管理</a></li>
+                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">VIP管理</a></li>
+                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">Vip用户电脑咨询费用折扣</a></li>
+                    <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">vip简介</a></li>
+                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">vip折扣管理</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">留言咨询管理</a></li>
+               		<li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">平台医生电话咨询费用折扣</a></li>
+               		<li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">电话咨询管理</a></li>
+               		<li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">平台医生咨询费用管理</a></li>		
+                </ul>
 			    </div>   
-			    <div title="会员管理" data-options="iconCls:'icon-reload'" style="padding:10px;">   
-			         <a href="02_layout/VIP.jsp" class="menuA">会员管理</a>
+			    <div title="用户管理" data-options="iconCls:'icon-application-form-edit'" style="padding:10px;">   
+			         <ul class="easyui-tree wu-side-tree">
+                	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">医生信息管理</a></li>
+                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">医生资料审核管理</a></li>
+                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">用户信息管理</a></li>
+                    </ul>
 			    </div>   
-			    <div title="联系人管理" data-options="iconCls:'icon-reload'" style="padding:10px;">   
-			          <a href="02_layout/Lianxi.jsp" class="menuA">联系人管理</a>
-			    </div>   
-			</div>  
-	    </div>   
+			   <div title="首页管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">  	
+    			<ul class="easyui-tree wu-side-tree">
+                	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">首页图片管理</a></li>
+                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">免费自查管理</a></li>
+                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">搜索标签管理</a></li>
+                    <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">电话直播管理</a></li>
+                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">科室筛选管理</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">专家特诊项目管理</a></li>
+                	<li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">健康预警项目管理</a></li>
+                </ul>
+            </div>
+            <div title="系统管理" data-options="iconCls:'icon-cart'" style="padding:5px;">  	
+    			<ul class="easyui-tree wu-side-tree">
+                	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">推送管理</a></li>
+                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">系统用户管理</a></li>
+                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">用户诉讼</a></li>
+                    <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">关于我们</a></li>
+                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">版本更新管理</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">日志管理</a></li>
+              		 <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">纠纷投诉管理</a></li>
+                	 <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">角色管理</a></li>
+               
+                </ul>
+            </div>
+            <div title="详细管理" data-options="iconCls:'icon-bricks'" style="padding:5px;">  	
+    			<ul class="easyui-tree wu-side-tree">
+                	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">今日值班医生</a></li>
+                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">医院导航</a></li>
+                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">今日科室信息管理</a></li>
+                    <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">预约管理</a></li>
+                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">智能助手</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">医院信息</a></li>
+                </ul>
+            </div>
+            <div title="联系我们" data-options="iconCls:'icon-chart-curve'" style="padding:5px;">  	
+    			<ul class="easyui-tree wu-side-tree">
+                	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">微博</a></li>
+                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">微信公众号</a></li>
+                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">微博</a></li>
+                    <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">QQ</a></li>
+                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">邮箱</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">网址导航</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>	
+
 	    <div data-options="region:'center'" fit="true">
 		    <div id="tt" class="easyui-tabs" fit="true">   
 			    <div title="管理" data-options="closable:true" style="padding:20px;display:none;">   
