@@ -12,7 +12,10 @@ public interface VBuyService {
 
 	public List<VBuy> getAllVbuy(int page, int rows);
 	//添加
-	public boolean VbuySave(VBuy vv);
+	public boolean vBuySave(VBuy vv);
 	//删除
-	public boolean VbuyDel(int id);
+	public boolean vBuyDel(int id);
+	//修改
+	public VBuy vBuyUp(int id);
+	public boolean vBuyUpdate(VBuy vv);
 }

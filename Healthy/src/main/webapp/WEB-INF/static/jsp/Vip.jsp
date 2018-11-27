@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" id="openEdit" plain="true">修改</a>
 	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" id="remove" plain="true">删除</a>
 	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" id="cancel1" plain="true">取消</a>
-	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" id="reload2" plain="true">刷新</a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" id="reload" plain="true">刷新</a>
 	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-print" id="openAdd3" plain="true">帮助</a>
 	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-help" id="openEdit4" plain="true">撤销</a>
 	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-undo" id="remove5" plain="true">重做</a>
@@ -57,13 +57,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<tr>
     			<td>VIP名称</td>
     			<td>
-    				<input class="textbox" id="sChannel2" style="width:180px" maxLength=50 name="grade"/>
+    	
+    				<input class="textbox" style="width:180px" maxLength=50 name="grade"/>
     			</td>
     		</tr>
     		<tr>
     			<td>状态</td>
     			<td>
-    				<select name="zid" class=text>					
+    				<select name="zid">					
 					<option  value="1" >已使用</option>
 					<option  value="0" >暂停使用</option>					
 					</select>
@@ -75,6 +76,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<td>
 					<button id="customerBtnQ" type="button">取消</button>
+				</td>
+    		</tr>
+    	</table>    
+    </form></div>
+    
+<div id="VIPUP_win" class="easyui-window" title="修改VIP" style="width:600px;height:200px;margin-top:50px"
+    data-options="iconCls:'icon-save',mpdal:true,closed:true">
+    <form id="formUP" method="post">
+    	<table cellSpacing=0 cellPadding=5 border=0>
+    		
+    		<tr>
+    			<td>VIP名称</td>
+    			<td>
+    				<input type="hidden" id="id" name="id"/>
+    				<input class="textbox" id="grade" style="width:180px" maxLength=50 name="grade"/>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>状态</td>
+    			<td>
+    				<select name="zid" id="zid">					
+					<option  value="1" >已使用</option>
+					<option  value="0" >暂停使用</option>					
+					</select>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>
+					<button id="upBtn" type="button">修改</button>
+				</td>
+				<td>
+					<button id="upBtnQ" type="button">取消</button>
 				</td>
     		</tr>
     	</table>    
@@ -155,7 +188,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			//删除
 			$("#remove").click(function(){
 					var arr =$('#VIPTab').datagrid('getSelections');
-					alert(arr);
+					
 							if(arr.length < 1){
 								$.messager.alert({
 									title:'提示信息!',
@@ -185,12 +218,103 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											title:'提示信息!' , 
 											msg:'删除失败!'
 										});
+										//2 清空idField   
+									$('#VIPTab').datagrid('unselectAll');
 									}
 							});
 							
 							
 							}
 										
+			});
+			//修改
+			$("#openEdit").click(function(){
+					var arr =$('#VIPTab').datagrid('getSelections');
+					
+							if(arr.length > 1 || arr.length == 0){
+								$.messager.alert({
+									title:'提示信息!',
+									msg:'必須选择一行数据进行修改!'		
+								});
+								//2 清空idField  
+								 
+								$('#VIPTab').datagrid('unselectAll');
+							}else if(arr.length == 1){									
+								var ids = arr[0].id;
+								
+								$.ajax({
+									type: 'post' ,
+									url: "VbuyUp",
+									cache:false ,
+									data:"id="+ids,
+									dataType:'json',
+									success:function(data){ 
+							    		 	$("#id").val(data.id);
+											$("#zid").val(data.zid);
+											$("#grade").val(data.grade);
+											
+											
+											$("#VIPUP_win").window("open");
+											
+								     }
+							    });
+							}
+										
+			});
+			//修改
+			$("#upBtn").click(function(){
+				// 提交数据到Action
+				 
+				 $.ajax({
+						type: 'post' ,
+						url: "<%=path%>/VbuyUpdate",
+						cache:false ,
+						data:$('#formUP').serialize() ,
+						dataType:'json' ,
+						success:function(result){ 
+				    	if(result == true){
+				    	alert(result);
+					        $.messager.alert({
+					        	title:'提示消息',
+					        	msg:"修改成功",
+					        	timeout:3000,
+					        	showType:'slide'
+					        	});
+					    $('#VIPTab').datagrid('unselectAll');
+				     	// 关闭窗口
+						$("#VIPUP_win").window("close");
+						// 表格重新加载
+						$("#VIPTab").datagrid("reload");
+					     }else{
+					    alert(result);
+							$.meesager.alert({
+								title:'提示消息' , 
+								msg:"修改失败",
+					        	timeout:3000,
+					        	showType:'slide'
+							});
+						$('#VIPTab').datagrid('unselectAll');
+				     	// 关闭窗口
+						$("#VIPUP_win").window("close");
+						// 表格重新加载
+						$("#VIPTab").datagrid("reload");
+					     }
+					     
+						}
+				    });
+				        
+				      
+				 
+			});
+			$("#upBtnQ").click(function(){
+				$("#VIPUP_win").window("close");
+				$('#VIPTab').datagrid('unselectAll');
+			});
+			//刷新
+			
+			$("#reload").click(function(){
+			$('#VIPTab').datagrid('unselectAll');
+				$("#VIPTab").datagrid("reload");
 			});
 			
  });

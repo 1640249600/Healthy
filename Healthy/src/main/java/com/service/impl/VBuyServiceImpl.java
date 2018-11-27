@@ -40,15 +40,27 @@ public class VBuyServiceImpl implements VBuyService {
 	}
 //添加
 	@Override
-	public boolean VbuySave(VBuy vv) {
+	public boolean vBuySave(VBuy vv) {
 		// TODO Auto-generated method stub
-		return vbuyDao.VbuySave(vv);
+		return vbuyDao.vBuySave(vv);
 	}
 
 	@Override
-	public boolean VbuyDel(int id) {
+	public boolean vBuyDel(int id) {
 		// TODO Auto-generated method stub
-		return vbuyDao.VbuyDel(id);
+		return vbuyDao.vBuyDel(id);
+	}
+//修改
+	@Override
+	public VBuy vBuyUp(int id) {
+		// TODO Auto-generated method stub
+		return vbuyDao.vBuyUp(id);
+	}
+
+	@Override
+	public boolean vBuyUpdate(VBuy vv) {
+		// TODO Auto-generated method stub
+		return vbuyDao.vBuyUpdate(vv);
 	}
 
 }

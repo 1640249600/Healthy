@@ -7,21 +7,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.pojo.VBuy;
 import com.pojo.doctorlist;
-import com.service.DoctorService;
 import com.service.VBuyService;
 
 public class Test {
 	ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 	
-	public void getAllDoctor(){
-		DoctorService dd = (DoctorService) ctx.getBean("doctorService");
-		List<doctorlist>  xx = dd.getAllDoctor();
-				for (doctorlist ds : xx) {
-					System.out.println(ds.getDname());
-				}
-
-		
-	}
+	
 	public void getAllVBuy(){
 		VBuyService vv = (VBuyService) ctx.getBean("vbuyService");
 		List<VBuy>  xx = vv.getAllVbuy(1,2);
@@ -38,7 +29,7 @@ public class Test {
 		aa.setGrade("aaa");
 		aa.setZid(0);
 		
-		boolean  xx = vv.VbuySave(aa);
+		boolean  xx = vv.vBuySave(aa);
 				System.out.println(xx);
 
 	}
@@ -46,7 +37,7 @@ public class Test {
 		VBuyService vv = (VBuyService) ctx.getBean("vbuyService");
 		
 		
-		boolean  xx = vv.VbuyDel(13);
+		boolean  xx = vv.vBuyDel(13);
 				System.out.println(xx);
 
 	}
