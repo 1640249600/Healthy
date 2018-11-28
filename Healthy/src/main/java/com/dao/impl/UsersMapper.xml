@@ -34,24 +34,7 @@
   					<result column="discount" property="discount"></result>
   				</association>
   				
-    		</resultMap>
-    		
-    		
-    		<resultMap type="us" id="UseList11">
-    			<result column="id"  property="id"></result>
-    			
-    			<result column="name"  property="name"></result>
-    			               
-    			<result column="telephone"  property="telephone"></result>
-    			
-    		
-    		
-    			
-    		
-  				
-    		</resultMap>
-    		
-    		
+    		</resultMap>		
     		<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
     		<select id="getUsers" resultType="us" >
     			select id,name,telephone from users 

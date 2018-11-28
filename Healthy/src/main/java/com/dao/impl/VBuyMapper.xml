@@ -37,7 +37,6 @@
   		<!-- 添加 -->
   		<insert id="vBuySave" parameterType="vbuy">
   				insert into vbuy (id,grade,zid) values (seq_Vbuy.nextval,#{grade},#{zid})
-  		
   		</insert>
   		<!-- 删除 -->
   		<delete id="vBuyDel" parameterType="int" >
