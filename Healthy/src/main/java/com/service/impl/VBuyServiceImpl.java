@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -64,6 +62,7 @@ public class VBuyServiceImpl implements VBuyService {
 		// TODO Auto-generated method stub
 		return vbuyDao.vBuyUpdate(vv);
 	}
+	
 	
 
 }

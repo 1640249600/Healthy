@@ -53,6 +53,6 @@ public class Test {
 	public static void main(String[] args) {
 		Test tt = new Test();
 		//tt.getAllVBuy();
-		tt.getUser();
+		tt.getAllVBuy();
 	}
 }

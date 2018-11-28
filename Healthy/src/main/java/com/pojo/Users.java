@@ -12,9 +12,10 @@ public class Users {
 	private int id;
 	private String name;
 	private Integer telephone;
-	private Date birthday;
 	@DateTimeFormat(pattern="yyyy-MM-dd")//强制要求日期格式
 	@JSONField(format="yyyy-MM-dd")//相当于 SimpleDateformat
+	private Date birthday;
+	
 	public Zhuangtai getZhuangtai() {
 		return zhuangtai;
 	}

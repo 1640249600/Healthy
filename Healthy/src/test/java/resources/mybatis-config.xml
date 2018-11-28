@@ -14,8 +14,8 @@
 	<!--类型别名 -->
 	
 	<typeAliases>
-		<typeAlias type="com.pojo.doctorlist" alias="doctor" />
-		<typeAlias type="com.pojo.department" alias="dep" />
+		<typeAlias type="com.pojo.Doctorlist" alias="doctor" />
+		<typeAlias type="com.pojo.Department" alias="dep" />
 		<typeAlias type="com.pojo.VBuy" alias="vbuy" />
 		<typeAlias type="com.pojo.Zhuangtai" alias="ZT" />
 		<typeAlias type="com.pojo.SystemUser" alias="su"/>
