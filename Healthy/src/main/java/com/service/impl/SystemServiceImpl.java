@@ -23,13 +23,5 @@ public class SystemServiceImpl implements SystemService {
 		// TODO Auto-generated method stub
 		return systemMapper.toLogin(ss);
 	}
-public static void main(String[] args) {
-	ApplicationContext ac=new ClassPathXmlApplicationContext("applicationContext.xml");
-	SystemService ss=(SystemService) ac.getBean("systemService");
-	SystemUser mm=new SystemUser();
-	mm.setName("林爱香");
-	mm.setPassword("123");
-	boolean flag=ss.toLogin(mm);
-	System.out.println(flag);
-}
+
 }
