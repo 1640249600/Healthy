@@ -21,7 +21,7 @@ public class VipAction {
 		return "Vip";
 	}
 	//跳转用户页面
-	@RequestMapping("toUsers")
+	@RequestMapping("/toUsers")
 	public String toUsers(){
 		return "Users";
 	}

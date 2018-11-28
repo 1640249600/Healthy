@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.pojo.VBuy;
+import com.service.UsersService;
 import com.service.VBuyService;
 
 public class Test {
@@ -23,6 +24,12 @@ public class Test {
 				}
 
 	}	
+	//
+	public void getUser(){
+		UsersService uu=(UsersService) ctx.getBean("usersService");
+		List<Users> list=uu.getUsers(1,2);
+		System.out.println(list.size());
+	}
 	public void VbuySave(){
 		VBuyService vv = (VBuyService) ctx.getBean("vbuyService");
 		VBuy aa = new VBuy();
@@ -44,6 +51,7 @@ public class Test {
 		
 	public static void main(String[] args) {
 		Test tt = new Test();
-		tt.getAllVBuy();
+		//tt.getAllVBuy();
+		tt.getUser();
 	}
 }

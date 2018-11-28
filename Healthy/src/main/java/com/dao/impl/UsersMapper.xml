@@ -2,13 +2,60 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.dao.UserMapper">
-    	<!-- 遍历 -->
-    	<select id="getUsers" parameterType="int" resultType="User">
-    		select * from (select users.*,rownum_ from users where rownum &lt;=3* #{currage})
-    		where rownum_ &gt;(#{currage}-1)*3
-    	</select>
-    	<!-- 总记录数 -->
-    	<select id="countUsers" resultType="int">
-    		select count(1) from users
-    	</select>
+    		<resultMap type="User" id="UseList">
+    			<result column="id"  property="id"></result>
+    			<result column="vid"  property="vid"></result>
+    			<result column="zid"  property="zid"></result>
+    			<result column="name"  property="name"></result>
+    			<result column="telephone"  property="telephone"></result>
+    			<result column="evaluate"  property="evaluate"></result>
+    			<result column="sevaluate"  property="sevaluate"></result>
+    			<result column="devaluate"  property="devaluate"></result>
+    			<result column="addtime"  property="addtime"></result>
+    			<result column="hand"  property="hand"></result>
+    			<result column="sex"  property="sex"></result>
+    			<result column="birthday"  property="birthday"></result>
+    			<result column="wechat"  property="wechat"></result>
+    			<result column="eamil"  property="eamil"></result>
+    			<result column="address"  property="address"></result>	
+    			
+    			<association property="zhuangtai" javaType="ZT">
+  					<result column="zid" property="zid"></result>
+  					<result column="state" property="state"></result> 				
+  				</association>
+  				
+  				<association property="vbuy" javaType="vbuy">
+  					<result column="id" property="id"></result>
+  					<result column="grade" property="grade"></result>
+  					<result column="sixPrice" property="sixPrice"></result>
+  					<result column="twelvePrivce" property="twelvePrivce"></result>
+  					<result column="twentyfourPrice" property="twentyfourPrice"></result>
+  					<result column="thirtysixPrice" property="thirtysixPrice"></result>
+  					<result column="discount" property="discount"></result>
+  				</association>
+    		</resultMap>
+    		<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
+    		<select id="getUsers" resultMap="UseList" parameterType="int">
+    			select id,name,telephone,grade,state,birthday from
+				(select u.id,u.name,u.telephone,u.birthday,v.grade,z.state,rownum rownum_ from users u right join vbuy v on u.vid = v.id left join zhuangtai z on u.zid = z.zid
+				where rownum &lt;= #{page} * #{rows})where rownum_ &gt; (#{page} -  1) * #{rows}
+			</select>
+			<select id="countUsers" resultType="int">
+					select count(1) from users
+			</select>
+			<!--添加  -->
+			<insert id="UserAdd" parameterType="User">
+				insert into users(id,name,telephone,grade,state,birthday)values(#{id},#{name},#{telephone},#{grade},#{state},#{birthday})
+			</insert>
+			<!-- 删除 -->
+			<delete id="UserDelete" parameterType="User">
+				select * from users where id=#{id}
+			</delete>
+			<!-- 修改 -->
+			<select id="Userselect" parameterType="User">
+				select * from users where id=#{id}
+			</select>
+			<update id="UserUpdate" parameterType="User">
+				update users set name=#{name},telephone=#{telephone},grade=#{grade},birthday=#{birthday} where id=#{id}
+			</update>
     </mapper>

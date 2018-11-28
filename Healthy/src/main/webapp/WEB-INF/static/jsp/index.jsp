@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			         <ul class="easyui-tree wu-side-tree">
                 	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">医生信息管理</a></li>
                     <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">医生资料审核管理</a></li>
-                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">用户信息管理</a></li>
+                    <li iconCls="icon-user-group"><a href="<%=path %>/toUsers" data-icon="icon-user-group" iframe="0">用户信息管理</a></li>
                     </ul>
 			    </div>   
 			   <div title="首页管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">  	
