@@ -17,7 +17,7 @@ public class SystemServiceImpl implements SystemService {
 	public void setSystemMapper(SystemMapper systemMapper) {
 		this.systemMapper = systemMapper;
 	}
-	//登录
+	//登录222
 	@Override
 	public boolean toLogin(SystemUser ss) {
 		// TODO Auto-generated method stub
