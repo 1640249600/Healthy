@@ -1,6 +1,8 @@
 package com.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -12,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dao.UserMapper;
 import com.pojo.Users;
 import com.service.UsersService;
+
 @Service("usersService")
 @Transactional
 public class UsersServiceImpl implements UsersService {
@@ -27,9 +30,9 @@ public class UsersServiceImpl implements UsersService {
 	
 //分页
 	@Override
-	public List<Users> getUsers(int page, int rows) {
+	public List<Users> getUsers() {
 		// TODO Auto-generated method stub
-		return userMapper.getUsers(page,rows);
+		return userMapper.getUsers();
 	}
 //总记录数
 	@Override
@@ -62,7 +65,13 @@ public class UsersServiceImpl implements UsersService {
 		return userMapper.UserUpdate(uu);
 	}
 	public static void main(String[] args) {
-		System.out.println("----");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UsersService uu=(UsersService) ctx.getBean("usersService");
+		Map<String, Integer> map = new HashMap();
+		map.put("page", 1);
+		map.put("rows", 2);
+		List<Users> ll  =uu.getUsers();
+		System.out.println(ll.size());
 	}
 	
 }

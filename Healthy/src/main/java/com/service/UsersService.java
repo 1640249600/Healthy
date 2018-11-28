@@ -1,14 +1,16 @@
 package com.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
 import com.pojo.Users;
 
+
 public interface UsersService {
 	//查询
-	public List<Users> getUsers(int page, int rows);
+	public List<Users> getUsers();
 		//统计所有信息
 	public int countUsers();
 	//添加

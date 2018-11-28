@@ -20,6 +20,6 @@
 		<typeAlias type="com.pojo.VBuy" alias="vbuy" />
 		<typeAlias type="com.pojo.Zhuangtai" alias="ZT" />
 		<typeAlias type="com.pojo.SystemUser" alias="su"/>
-		<typeAlias type="com.pojo.Users" alias="User"/>
+		<typeAlias type="com.pojo.Users" alias="us"/>
 	</typeAliases>
 </configuration>

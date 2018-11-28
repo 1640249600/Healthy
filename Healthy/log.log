@@ -186,3 +186,291 @@ java.sql.SQLException: ORA-06553: PLS-306: 调用 'V' 时参数个数或类型�
 	at test.Test.getAllVBuy(Test.java:27)
 	at test.Test.main(Test.java:56)
 2018-11-27 11:49:29[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:03:51[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:04:49[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:07:06[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:11:27[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:11:28[ERROR](Log4jFilter.java:152) {conn-10005, pstmt-20000} execute error. select id,name,telephone,grade,state,birthday from
+				(select u.id,u.name,u.telephone,u.birthday,v.grade,z.state,rownum rownum_ from users u right join vbuy v on u.vid = v.id left join zhuangtai z on u.zid = z.zid
+				where rownum <= 2 * 2 where rownum_ > (2 -  1) *2
+java.sql.SQLException: ORA-00907: 缺失右括号
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:743)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:799)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1037)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:839)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1132)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3316)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3422)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2929)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2927)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2927)
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:118)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:55)
+	at com.sun.proxy.$Proxy22.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:56)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:70)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:57)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:259)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:132)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:115)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:104)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:354)
+	at com.sun.proxy.$Proxy12.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:194)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:114)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43)
+	at com.sun.proxy.$Proxy16.getUsers(Unknown Source)
+	at com.service.impl.UsersServiceImpl.getUsers(UsersServiceImpl.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy18.getUsers(Unknown Source)
+	at com.service.impl.UsersServiceImpl.main(UsersServiceImpl.java:67)
+2018-11-28 12:13:14[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:38:47[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:39:18[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:39:19[ERROR](Log4jFilter.java:152) {conn-10005, pstmt-20000} execute error. select id,name,telephone,grade,state,birthday from
+				(select u.id,u.name,u.telephone,u.birthday,v.grade,z.state,rownum rownum_ from users u right join vbuy v on u.vid = v.id left join zhuangtai z on u.zid = z.zid
+				where rownum <=(? * ?)where rownum_ > (? -  1) * ?
+java.sql.SQLException: ORA-00907: 缺失右括号
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:743)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:799)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1037)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:839)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1132)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3316)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3422)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2929)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2927)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2927)
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:118)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:55)
+	at com.sun.proxy.$Proxy23.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:56)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:70)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:57)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:259)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:132)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:115)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:104)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:354)
+	at com.sun.proxy.$Proxy12.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:194)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:114)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43)
+	at com.sun.proxy.$Proxy16.getUsers(Unknown Source)
+	at com.service.impl.UsersServiceImpl.getUsers(UsersServiceImpl.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy18.getUsers(Unknown Source)
+	at com.service.impl.UsersServiceImpl.main(UsersServiceImpl.java:67)
+2018-11-28 12:42:49[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 12:54:16[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:00:00[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:03:50[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:08:46[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:10:55[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:14:07[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:15:37[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:20:37[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:23:19[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:24:26[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:30:45[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:43:07[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:46:16[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:47:36[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:49:01[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:51:59[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:55:11[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:55:59[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:57:46[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:58:59[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 13:59:23[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:03:47[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:06:10[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:08:13[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:09:13[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:10:00[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:12:04[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:14:23[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:19:01[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:22:26[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:22:27[ERROR](Log4jFilter.java:152) {conn-10005, pstmt-20000} execute error. select id,name,u_telephone from users
+java.sql.SQLException: ORA-00904: "U_TELEPHONE": 标识符无效
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:743)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:799)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1037)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:839)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1132)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3316)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3422)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2929)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2927)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2927)
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:118)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:55)
+	at com.sun.proxy.$Proxy22.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:56)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:70)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:57)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:259)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:132)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:115)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:104)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:354)
+	at com.sun.proxy.$Proxy12.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:194)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:114)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43)
+	at com.sun.proxy.$Proxy16.getUsers(Unknown Source)
+	at com.service.impl.UsersServiceImpl.getUsers(UsersServiceImpl.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy18.getUsers(Unknown Source)
+	at com.service.impl.UsersServiceImpl.main(UsersServiceImpl.java:73)
+2018-11-28 14:23:49[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:23:50[ERROR](Log4jFilter.java:152) {conn-10005, pstmt-20000} execute error. select id,name,u_telephone from users
+java.sql.SQLException: ORA-00904: "U_TELEPHONE": 标识符无效
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:743)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:799)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1037)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:839)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1132)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3316)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3422)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2929)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2927)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2927)
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:118)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:55)
+	at com.sun.proxy.$Proxy22.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:56)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:70)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:57)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:259)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:132)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:115)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:104)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:354)
+	at com.sun.proxy.$Proxy12.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:194)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:114)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43)
+	at com.sun.proxy.$Proxy16.getUsers(Unknown Source)
+	at com.service.impl.UsersServiceImpl.getUsers(UsersServiceImpl.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy18.getUsers(Unknown Source)
+	at com.service.impl.UsersServiceImpl.main(UsersServiceImpl.java:73)
+2018-11-28 14:24:41[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL

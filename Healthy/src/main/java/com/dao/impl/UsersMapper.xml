@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.dao.UserMapper">
-    		<resultMap type="User" id="UseList">
+    		<resultMap type="us" id="UseList">
     			<result column="id"  property="id"></result>
     			<result column="vid"  property="vid"></result>
     			<result column="zid"  property="zid"></result>
@@ -35,28 +35,44 @@
   				</association>
   				
     		</resultMap>
+    		
+    		
+    		<resultMap type="us" id="UseList11">
+    			<result column="id"  property="id"></result>
+    			
+    			<result column="name"  property="name"></result>
+    			               
+    			<result column="telephone"  property="telephone"></result>
+    			
+    		
+    		
+    			
+    		
+  				
+    		</resultMap>
+    		
+    		
     		<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
-    		<select id="getUsers" resultMap="UseList" parameterType="int">
-    			select id,name,telephone,grade,state,birthday from
-				(select u.id,u.name,u.telephone,u.birthday,v.grade,z.state,rownum rownum_ from users u right join vbuy v on u.vid = v.id left join zhuangtai z on u.zid = z.zid
-				where rownum &lt;= #{page} * #{rows})where rownum_ &gt; (#{page} -  1) * #{rows}
+    		<select id="getUsers" resultType="us" >
+    			select id,name,telephone from users 
+				
 			</select>
 			<select id="countUsers" resultType="int">
 					select count(1) from users
 			</select>
 			<!--添加  -->
-			<insert id="UserAdd" parameterType="User">
+			<insert id="UserAdd" parameterType="us">
 				insert into users(id,name,telephone,grade,state,birthday)values(#{id},#{name},#{telephone},#{grade},#{state},#{birthday})
 			</insert>
 			<!-- 删除 -->
-			<delete id="UserDelete" parameterType="User">
+			<delete id="UserDelete" parameterType="us">
 				select * from users where id=#{id}
 			</delete>
 			<!-- 修改 -->
-			<select id="Userselect" parameterType="User">
+			<select id="Userselect" parameterType="us">
 				select * from users where id=#{id}
 			</select>
-			<update id="UserUpdate" parameterType="User">
+			<update id="UserUpdate" parameterType="us">
 				update users set name=#{name},telephone=#{telephone},grade=#{grade},birthday=#{birthday} where id=#{id}
 			</update>
     </mapper>
