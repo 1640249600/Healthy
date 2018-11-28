@@ -34,6 +34,7 @@ public void setUsersService(UsersService usersService) {
 public Object toUsersList(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows){
 	System.out.println("------");
 	//获取总记录数
+	
 	List<Users> list=usersService.getUsers(Integer.parseInt(page),Integer.parseInt(rows));
 	System.out.println("这是action");
 	JSONArray array=new JSONArray();

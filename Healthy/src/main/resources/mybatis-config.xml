@@ -11,6 +11,7 @@
 		<setting name="logImpl" value="STDOUT_LOGGING" />
 	</settings>
 	
+	
 	<!--类型别名 -->
 	
 	<typeAliases>

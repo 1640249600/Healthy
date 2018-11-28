@@ -33,6 +33,7 @@
   					<result column="thirtysixPrice" property="thirtysixPrice"></result>
   					<result column="discount" property="discount"></result>
   				</association>
+  				
     		</resultMap>
     		<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
     		<select id="getUsers" resultMap="UseList" parameterType="int">

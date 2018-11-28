@@ -51,6 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                		<li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">电话咨询管理</a></li>
                		<li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">平台医生咨询费用管理</a></li>		
                 </ul>
+                
 			    </div>   
 			    <div title="用户管理" data-options="iconCls:'icon-application-form-edit'" style="padding:10px;">   
 			         <ul class="easyui-tree wu-side-tree">

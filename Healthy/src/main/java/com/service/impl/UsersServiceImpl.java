@@ -24,6 +24,7 @@ public class UsersServiceImpl implements UsersService {
 	public void setUserMapper(UserMapper userMapper) {
 		this.userMapper = userMapper;
 	}
+	
 //分页
 	@Override
 	public List<Users> getUsers(int page, int rows) {
