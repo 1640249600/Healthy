@@ -28,6 +28,7 @@ public class Users implements Serializable{
 	}
 	public void setZid(Integer zid) {
 		this.zid = zid;
+		
 	}
 	@DateTimeFormat(pattern="yyyy-MM-dd")//强制要求日期格式
 	@JSONField(format="yyyy-MM-dd")//相当于 SimpleDateformat

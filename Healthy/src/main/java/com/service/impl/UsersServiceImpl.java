@@ -18,6 +18,7 @@ import com.pojo.Zhuangtai;
 import com.service.UsersService;
 import com.util.Tools;
 
+
 @Service("usersService")
 @Transactional
 public class UsersServiceImpl implements UsersService {
@@ -71,6 +72,7 @@ public class UsersServiceImpl implements UsersService {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UsersService uu=(UsersService) ctx.getBean("usersService");
 		//List<Users> ll=uu.getUsers(1, 2);
+		
 		
 		Users u=new Users();
 		u.setId(5);

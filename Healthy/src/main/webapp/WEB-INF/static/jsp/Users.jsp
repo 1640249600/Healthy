@@ -334,6 +334,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					timeout:3000,
 					showType:'slide'
   			});
+  			
   			  $('#UserTab').datagrid('unselectAll');
 				     	// 关闭窗口
 						$("#UserUpdate_win").window("close");

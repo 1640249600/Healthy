@@ -25,6 +25,7 @@ public UsersService getUsersService() {
 	return usersService;
 }
 
+
 public void setUsersService(UsersService usersService) {
 	this.usersService = usersService;
 }
@@ -54,6 +55,7 @@ public Object toUsersList(@RequestParam(value="page",required=false)String page,
 	String ul="{\"total\":"+total+",\"rows\":"+array.toString()+"}";
 	return ul;
 }
+
 //增加
 	@RequestMapping("/userAdd")
 	@ResponseBody
