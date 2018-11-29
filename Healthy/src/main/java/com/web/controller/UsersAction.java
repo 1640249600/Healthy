@@ -45,9 +45,10 @@ public Object toUsersList(@RequestParam(value="page",required=false)String page,
 		obj.put("grade", users.getVbuy().getGrade());
 		obj.put("telephone", users.getTelephone());
 		obj.put("birthday", users.getBirthday());
-		obj.put("state", users.getZhuangtai().getZid());
+		obj.put("state", users.getZhuangtai().getState());
 		array.add(obj);
 	}
+	System.out.println(array.toString());
 	int total=usersService.countUsers();
 	//固定格式转换为easyui能接收的格式
 	String ul="{\"total\":"+total+",\"rows\":"+array.toString()+"}";
@@ -56,8 +57,10 @@ public Object toUsersList(@RequestParam(value="page",required=false)String page,
 //增加
 	@RequestMapping("/userAdd")
 	@ResponseBody
-	public String uAdd(HttpServletRequest request,@ModelAttribute(value="uu")Users uu){
-		boolean flag=usersService.UserAdd(uu);
+	public String uAdd(HttpServletRequest request,@ModelAttribute(value="us") Users us){
+		System.out.println("-----添加");
+	
+		boolean flag=usersService.UserAdd(us);
 		if (flag) {
 			return "true";
 		}else {
@@ -89,12 +92,12 @@ public Object toUsersList(@RequestParam(value="page",required=false)String page,
 		System.out.println(id);
 		Users uu=usersService.Userselect(Integer.parseInt(id));
 		JSONObject obj=new JSONObject();
-		obj.put("id", uu.getId());
 		obj.put("name", uu.getName());
-		obj.put("grade", uu.getVbuy().getGrade());
+		obj.put("id", uu.getId());
+		obj.put("vid", uu.getVid());
 		obj.put("telephone", uu.getTelephone());
 		obj.put("birthday", uu.getBirthday());
-		obj.put("state", uu.getZhuangtai().getZid());
+		obj.put("zid", uu.getZid());
 		System.out.println(obj.toString());
 		return obj.toString();
 	}
@@ -103,7 +106,7 @@ public Object toUsersList(@RequestParam(value="page",required=false)String page,
 	@ResponseBody
 	public String uUpdate(HttpServletRequest request,@ModelAttribute(value="uu")Users uu)throws Exception{
 		boolean u=false;
-		System.out.println(uu.getId()+"=="+uu.getVbuy().getGrade()+"=="+uu.getTelephone()+"=="+uu.getBirthday()+"=="+uu.getZhuangtai().getState());
+		//System.out.println(uu.getId()+"=="+uu.getTelephone()+"=="+uu.getBirthday());
 		u=usersService.UserUpdate(uu);
 		if (u) {
 			return "true";

@@ -33,31 +33,29 @@
   					<result column="thirtysixPrice" property="thirtysixPrice"></result>
   					<result column="discount" property="discount"></result>
   				</association>
-  				
-  				
-  				
     		</resultMap>		
     		<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
-    		<select id="getUsers" resultType="us" >
-    			select id,name,telephone from users 
-				
+    		<select id="getUsers" resultMap="UseList"  parameterType="int">
+    			select id,name,telephone,grade,state,birthday from
+				(select u.id,u.name,u.telephone,u.birthday,v.grade,z.state,rownum rownum_ from users u right join vbuy v on u.vid = v.id left join zhuangtai z on u.zid = z.zid
+				where rownum &lt;= #{page} * #{rows}) where rownum_ &gt; (#{page} -  1) * #{rows}
 			</select>
-			<select id="countUsers" resultType="int">
+			<select id="countUsers" resultType="int" >
 					select count(1) from users
 			</select>
 			<!--添加  -->
 			<insert id="UserAdd" parameterType="us">
-				insert into users(id,name,telephone,grade,state,birthday)values(#{id},#{name},#{telephone},#{grade},#{state},#{birthday})
+				insert into users (id,name,telephone,vid,zid,birthday) values (seq_User.Nextval,#{name},#{telephone},#{vid},#{zid},#{birthday})
 			</insert>
 			<!-- 删除 -->
-			<delete id="UserDelete" parameterType="us">
-				select * from users where id=#{id}
+			<delete id="UserDelete" parameterType="int">
+				delete from users where id=#{id}
 			</delete>
 			<!-- 修改 -->
-			<select id="Userselect" parameterType="us">
+			<select id="Userselect" parameterType="int" resultType="us">
 				select * from users where id=#{id}
 			</select>
 			<update id="UserUpdate" parameterType="us">
-				update users set name=#{name},telephone=#{telephone},grade=#{grade},birthday=#{birthday} where id=#{id}
+				update users set name=#{name},telephone=#{telephone},vid=#{vid},zid=#{zid},birthday=#{birthday} where id=#{id}
 			</update>
     </mapper>

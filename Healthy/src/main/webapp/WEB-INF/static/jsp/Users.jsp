@@ -56,19 +56,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<tr>
     			<td>用户账号</td>
     			<td>
-    				<input class="textbox" style="width:180px" maxLength=50 name="grade"/>
+    				<input class="textbox" style="width:180px" maxLength=50 name="id"/>
     			</td>
     		</tr>
     		<tr>
     			<td>用户名称</td>
     			<td>
     	
-    				<input class="textbox" style="width:180px" maxLength=50 name="grade"/>
+    				<input class="textbox" style="width:180px" maxLength=50 name="name"/>
     			</td>
     		</tr>
     		<tr>
     		   <td>
-    				<select name="zid" id="zid">					
+    				<select name="vid">					
 					<option  value="1" >健康会员</option>
 					<option  value="2" >基础会员</option>
 					<option  value="3" >金卡会员</option>
@@ -80,14 +80,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<tr>
     			<td>用户电话</td>
     			<td>
-    				<input class="textbox" style="width:180px" maxLength=50 name="grade"/>
+    				<input class="textbox" style="width:180px" maxLength=50 name="telephone"/>
     			</td>
     		</tr>
     		<tr>
     			<td>用户日期</td>
     			<td>
     	
-    				<input class="textbox" style="width:180px" maxLength=50 name="grade"/>
+    				<input class="textbox" style="width:180px" maxLength=50 name="birthday"/>
     			</td>
     		</tr>
     		<tr>
@@ -108,29 +108,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
     		</tr>
     	</table>    
-    </form></div>
-    
+    </form>
+</div>  
 <div id="UserUpdate_win" class="easyui-window" title="修改信息" style="width:600px;height:200px;margin-top:50px"
     data-options="iconCls:'icon-save',mpdal:true,closed:true">
     <form id="formUP" method="post">
     	<table cellSpacing=0 cellPadding=5 border=0>
     		<tr>
-    			<td>用户账号</td>
+    			<td>用户名称</td>
     			<td>
-    				<input class="textbox" style="width:180px" maxLength=50 name="grade"/>
+    				<input class="textbox" style="width:180px" maxLength=50 id="name" name="name"/>
     			</td>
     		</tr>
     		<tr>
-    			<td>用户名称</td>
+    			<td>用户账号</td>
     			<td>
-    				<input type="hidden" id="id" name="id"/>
-    				<input class="textbox" id="grade" style="width:180px" maxLength=50 name="grade"/>
+    				
+    				<input class="textbox" id="id" style="width:180px" maxLength=50 name="id"/>
     			</td>
     		</tr>
     		    <tr>
     			<td>用户身份</td>
     			<td>
-    				<select name="zid" id="zid">					
+    				<select name="vid" id="vid">					
 					<option  value="1" >健康会员</option>
 					<option  value="2" >基础会员</option>
 					<option  value="3" >金卡会员</option>
@@ -151,14 +151,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<tr>
     			<td>用户电话</td>
     			<td>
-    				<input class="textbox" style="width:180px" maxLength=50 name="grade"/>
+    				<input class="textbox" style="width:180px" maxLength=50 id="telephone" name="telephone"/>
     			</td>
     		</tr>
     		<tr>
     			<td>用户日期</td>
     			<td>
     	
-    				<input class="textbox" style="width:180px" maxLength=50 name="grade"/>
+    				<input class="textbox" style="width:180px" maxLength=50 id="birthday" name="birthday"/>
     			</td>
     		</tr>
     		<tr>
@@ -207,6 +207,168 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				//窗体打开事件
   				$("#userAdd_win").window("open");
   			});
+  			$("#customerBtn").click(function(){
+  				//提交数据到action
+  				alert("---");
+  				$.ajax({
+  					type:"post",
+  					url:"userAdd",
+  					data:$('#formAdd').serialize(),
+  					dataType:"json",
+  					success:function(result){
+  					alert("------");
+  						$.messager.alert({
+  							title:'提示消息',
+					        	msg:"添加成功",
+					        	timeout:3000,
+					        	showType:'slide'
+  						});
+  					},
+  							error:function(result){
+							$.meesager.alert({
+								title:'提示消息' , 
+								msg:"添加失败",
+					        	timeout:3000,
+					        	showType:'slide'
+							});
+						}
+  				});
+  				//关闭窗口
+  				$("#userAdd_win").window("close");
+  				//表格重新加载
+  				$("#UserTab").datagrid("reload");
+  			});
+  			//关闭
+  			$("#customerBtnQ").click(function(){
+  				$("#userAdd_win").window("close");
+  			});
+  			//删除
+  			$("#remove").click(function(){
+  			alert("---");
+  				var arr=$("#UserTab").datagrid("getSelections");
+  				if(arr.length<1){
+  					$.messager.alert({
+  						title:'提示信息!',
+						msg:'必須选择一行及以上数据进行刪除!'
+  					});
+  				}else{
+  					$.messager.confirm("提示信息","确定删除?",function(r){
+  						if(r){
+  							var ids="";
+  							for(var i =0 ;i<arr.length;i++){
+							ids += arr[i].id + ',' ;
+							}
+							ids = ids.substring(0 , ids.length-1);
+										$.post('<%=path%>/userDelete' , {id:ids} , function(result){
+												//1 刷新数据表格 
+												$('#UserTab').datagrid('reload');
+												//2 清空idField   
+												$('#UserTab').datagrid('unselectAll');
+												//3 给提示信息 
+												$.messager.alert({
+													title:'提示信息!' , 
+													msg:'删除成功!'
+												});
+  					});
+  				}else {
+						$.messager.alert({
+						title:'提示信息!' , 
+						msg:'删除失败!'
+						});
+						//2 清空idField   
+						$('#UserTab').datagrid('unselectAll');
+						}
+  			});
+  			}
  });
+ //修改
+ $("#openEdit").click(function(){
+ 	var arr =$('#UserTab').datagrid('getSelections');
+ 	if(arr.length > 1 || arr.length == 0){
+								$.messager.alert({
+									title:'提示信息!',
+									msg:'必須选择一行数据进行修改!'		
+								});
+								//2 清空idField
+								$('#UserTab').datagrid('unselectAll');
+								}else if(arr.length == 1){									
+								var ids = arr[0].id;
+								
+								$.ajax({
+									type: 'post' ,
+									url: "userSelect",
+									cache:false ,
+									data:"id="+ids,
+									dataType:'json',
+									success:function(data){ 
+											$("#name").val(data.name);
+											$("#id").val(data.id);
+											$("#vid").val(data.vid);
+											$("#telephone").val(data.telephone);
+											$("#birthday").val(data.birthday);
+											$("#zid").val(data.zid);
+											$("#UserUpdate_win").window("open");	
+								     }
+							    });
+								}
+ });
+ 
+ 
+ 
+  //修改:
+  $("#upBtn").click(function(){
+  	//提交数据到action
+  	alert("------");
+  	$.ajax({
+  		type: 'post' ,
+		url: "<%=path%>/userUpdate",
+		cache:false ,
+		data:$('#formUP').serialize() ,
+		dataType:'json' ,
+  		succress:function(result){
+  			if(result==true){
+  			alert(result);
+  			  $.messager.alert({
+					title:'提示消息',
+					msg:"修改成功",
+					timeout:3000,
+					showType:'slide'
+  			});
+  			  $('#UserTab').datagrid('unselectAll');
+				     	// 关闭窗口
+						$("#UserUpdate_win").window("close");
+						// 表格重新加载
+						$("#UserTab").datagrid("reload");
+  			}else{
+  				 alert(result);
+					$.meesager.alert({
+					title:'提示消息' , 
+					msg:"修改失败",
+					timeout:3000,
+					showType:'slide'
+				});
+					$('#UserTab').datagrid('unselectAll');
+				     	// 关闭窗口
+						$("#UserUpdate_win").window("close");
+						// 表格重新加载
+						$("#UserTab").datagrid("reload");
+				
+  			}
+  		}
+  	});
+  });
+  	$("#upBtnQ").click(function(){
+				$("#UserUpdate_win").window("close");
+				$('#UserTab').datagrid('unselectAll');
+			});
+			//刷新
+			
+			$("#reload").click(function(){
+			$('#UserTab').datagrid('unselectAll');
+				$("#UserTab").datagrid("reload");
+  });
+ });
+
+ 
 </script>
 </html>

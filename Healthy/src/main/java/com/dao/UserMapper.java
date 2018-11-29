@@ -10,7 +10,7 @@ import com.pojo.Users;
 
 public interface UserMapper {
 	//查询
-	public List<Users> getUsers();
+	public List<Users> getUsers(@Param(value="page")int page,@Param(value="rows")int rows);
 	//统计所有信息
 	public int countUsers();
 	

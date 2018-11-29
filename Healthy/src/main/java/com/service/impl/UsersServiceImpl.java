@@ -13,7 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.UserMapper;
 import com.pojo.Users;
+import com.pojo.VBuy;
+import com.pojo.Zhuangtai;
 import com.service.UsersService;
+import com.util.Tools;
 
 @Service("usersService")
 @Transactional
@@ -30,9 +33,9 @@ public class UsersServiceImpl implements UsersService {
 	
 //分页
 	@Override
-	public List<Users> getUsers() {
+	public List<Users> getUsers(int page, int rows) {
 		// TODO Auto-generated method stub
-		return userMapper.getUsers();
+		return userMapper.getUsers(page,rows);
 	}
 //总记录数
 	@Override
@@ -67,11 +70,19 @@ public class UsersServiceImpl implements UsersService {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UsersService uu=(UsersService) ctx.getBean("usersService");
-		Map<String, Integer> map = new HashMap();
-		map.put("page", 1);
-		map.put("rows", 2);
-		List<Users> ll  =uu.getUsers();
-		System.out.println(ll.size());
+		//List<Users> ll=uu.getUsers(1, 2);
+		
+		Users u=new Users();
+		u.setId(5);
+		u.setName("张三");
+		u.setTelephone("13122653246");
+		u.setVid(9);
+		u.setZid(6);
+		u.setBirthday(Tools.StringToDate("1998-06-12"));
+		//boolean mm=u.UserUpdate(uu);
+		//boolean bb=uu.UserDelete(35);
+		//System.out.println(mm);
+		
 	}
 	
 }
