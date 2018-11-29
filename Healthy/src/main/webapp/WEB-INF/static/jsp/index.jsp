@@ -40,9 +40,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<div id="aa" class="easyui-accordion" fit="true" >   
 			    <div title="服务管理" data-options="iconCls:'icon-application-cascade'" style="overflow:auto;padding:10px;">   
 			         <ul class="easyui-tree wu-side-tree">
-			         <li><a href="<%=path %>/vip" class="menuA">客户管理</a></li>
 			         <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-2.html" iframe="0">vip购买管理</a></li>
-                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">VIP管理</a></li>
+                    <li iconCls="icon-users"><a href="<%=path %>/vip" data-icon="icon-users" class="menuA">VIP管理</a></li>
                     <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">Vip用户电脑咨询费用折扣</a></li>
                     <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">vip简介</a></li>
                     <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">vip折扣管理</a></li>
@@ -54,9 +53,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 
 			    </div>   
 			    <div title="用户管理" data-options="iconCls:'icon-application-form-edit'" style="padding:10px;">   
-			         <ul class="easyui-tree wu-side-tree">
+			        <ul class="easyui-tree wu-side-tree">
                 	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">医生信息管理</a></li>
-                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">医生资料审核管理</a></li>
+                    <li iconCls="icon-users"><a href="<%=path %>/toDoctorList" data-icon="icon-users" class="menuA">医生资料审核管理</a></li>
                     <li iconCls="icon-user-group"><a href="<%=path %>/toUsers" data-icon="icon-user-group" iframe="0">用户信息管理</a></li>
                     </ul>
 			    </div>   

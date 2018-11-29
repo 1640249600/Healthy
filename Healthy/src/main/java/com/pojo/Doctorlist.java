@@ -21,23 +21,35 @@ public class Doctorlist {
 	   private Integer yizhen;               //number(2),--是否加入义诊 0为否 1为是
 	   private Integer sex;                  //number(2),--性别 0为女 1为男
 	   private Integer age;                 //number(3),--年龄
-	   private Integer tel;                  //number(15),--联系方式
+	   private String tel;                  //number(15),--联系方式
 	   private Integer liuprice;             //number(4),--留言费用
 
 	   private Integer telprice;             //number(4),--电话费用
-	   private Integer zfprice;              //varchar2(11),--支付宝账户
+	   private String zfprice;              //varchar2(11),--支付宝账户
 	   private String jianjie;              //varchar2(300),--简介
 	   @DateTimeFormat(pattern="yyyy-MM-dd")//强制要求日期格式
 	   @JSONField(format="yyyy-MM-dd")//相当于 SimpleDateformat
 	   private Date tijiaotime;           //date,--提交时间
 	   private Integer shid;               //number(2),--是否审核 0为否 1为是
-	   private Integer idcard;               //number(15),--身份证
-	   private Integer zigecard;             //number(15),--资格证编号
-	   private Integer zhixingcard;          //number(15),--执行证编号
+	   private String idcard;               //number(15),--身份证
+	   private String zigecard;             //number(15),--资格证编号
+	   private String zhixingcard;          //number(15),--执行证编号
 	   private String zigepicture;          //varchar2(300),--资格证图片
 	   private String zhixingpicture;       //varchar2(300),--执行证图片
 	   private String idcardpicture;        //varchar2(300),--身份证图片
 	   private String gongzuopicture;       //varchar2(300)--工作证图片 
+	
+	private Zhuangtai zhuangtai;
+	private Department dept;
+	private DoctorIdentity doctorIdentity;
+	private Specialty specialty;
+	private DoctotShenhe shenhe;
+	public DoctotShenhe getShenhe() {
+		return shenhe;
+	}
+	public void setShenhe(DoctotShenhe shenhe) {
+		this.shenhe = shenhe;
+	}
 	public Integer getDid() {
 		return did;
 	}
@@ -110,10 +122,10 @@ public class Doctorlist {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public Integer getTel() {
+	public String getTel() {
 		return tel;
 	}
-	public void setTel(Integer tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 	public Integer getLiuprice() {
@@ -128,10 +140,10 @@ public class Doctorlist {
 	public void setTelprice(Integer telprice) {
 		this.telprice = telprice;
 	}
-	public Integer getZfprice() {
+	public String getZfprice() {
 		return zfprice;
 	}
-	public void setZfprice(Integer zfprice) {
+	public void setZfprice(String zfprice) {
 		this.zfprice = zfprice;
 	}
 	public String getJianjie() {
@@ -152,22 +164,22 @@ public class Doctorlist {
 	public void setShid(Integer shid) {
 		this.shid = shid;
 	}
-	public Integer getIdcard() {
+	public String getIdcard() {
 		return idcard;
 	}
-	public void setIdcard(Integer idcard) {
+	public void setIdcard(String idcard) {
 		this.idcard = idcard;
 	}
-	public Integer getZigecard() {
+	public String getZigecard() {
 		return zigecard;
 	}
-	public void setZigecard(Integer zigecard) {
+	public void setZigecard(String zigecard) {
 		this.zigecard = zigecard;
 	}
-	public Integer getZhixingcard() {
+	public String getZhixingcard() {
 		return zhixingcard;
 	}
-	public void setZhixingcard(Integer zhixingcard) {
+	public void setZhixingcard(String zhixingcard) {
 		this.zhixingcard = zhixingcard;
 	}
 	public String getZigepicture() {
@@ -212,8 +224,13 @@ public class Doctorlist {
 	public void setDoctorIdentity(DoctorIdentity doctorIdentity) {
 		this.doctorIdentity = doctorIdentity;
 	}
-	private Zhuangtai zhuangtai;
-	private Department dept;
-	private DoctorIdentity doctorIdentity;
+	public Specialty getSpecialty() {
+		return specialty;
+	}
+	public void setSpecialty(Specialty specialty) {
+		this.specialty = specialty;
+	}
+	
+	
 	   
 }

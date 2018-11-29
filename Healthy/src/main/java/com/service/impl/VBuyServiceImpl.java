@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,7 +64,16 @@ public class VBuyServiceImpl implements VBuyService {
 		// TODO Auto-generated method stub
 		return vbuyDao.vBuyUpdate(vv);
 	}
-	
+	public static void main(String[] args) {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		VBuyService vv = (VBuyService) ctx.getBean("vbuyService");
+		List<VBuy>  xx = vv.getAllVbuy(1,2);
+				for (VBuy ds : xx) {
+					System.out.println(ds.getZhuangtai().getState());
+					System.out.println(ds.getGrade());
+					System.out.println(ds.getId());
+				}
+	}
 	
 
 }
