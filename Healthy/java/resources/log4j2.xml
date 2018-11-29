@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Loggers>  
+    *<logger name="com.dao" level="DEBUG"/>*
+    <Root level="error">  
+      <AppenderRef ref="Console"/>  
+    </Root>  
+    <Logger name="com.dao.impl" level="TRACE" additivity="false">       //为dao mapper所在的包，level为TRACE  
+      <AppenderRef ref="Console"/>  
+    </Logger>  
+  </Loggers>
