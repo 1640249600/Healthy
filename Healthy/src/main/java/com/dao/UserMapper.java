@@ -19,5 +19,4 @@ public interface UserMapper {
 	//修改(先查询后修改)
 	public Users Userselect(@Param(value="id")int id);
 	public boolean UserUpdate(Users uu);
-	
 }
