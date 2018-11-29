@@ -22,9 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <div class="easyui-layout" data-options="fit:true">
-    <div data-options="region:'west',border:true,split:true," title="VIP管理" style="width:150px; padding:5px;">
-        <ul id="wu-category-tree" class="easyui-tree"></ul>
-    </div>
+
     <div data-options="region:'center',border:false">
     	<!-- Begin of toolbar -->
         <div id="wu-toolbar">

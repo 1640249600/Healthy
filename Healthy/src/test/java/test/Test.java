@@ -53,6 +53,10 @@ public class Test {
 	public static void main(String[] args) {
 		Test tt = new Test();
 		//tt.getAllVBuy();
+<<<<<<< HEAD
 		//tt.getUser();
+=======
+		tt.getAllVBuy();
+>>>>>>> branch 'master' of https://github.com/1640249600/Healthy.git
 	}
 }

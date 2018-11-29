@@ -14,6 +14,7 @@ public class Users implements Serializable{
 	
 	private Integer id;
 	private String name;
+<<<<<<< HEAD
 	private String telephone;
 	private Integer vid;
 	private Integer zid;
@@ -30,9 +31,16 @@ public class Users implements Serializable{
 		this.zid = zid;
 		
 	}
+=======
+	private Integer telephone;
+>>>>>>> branch 'master' of https://github.com/1640249600/Healthy.git
 	@DateTimeFormat(pattern="yyyy-MM-dd")//强制要求日期格式
 	@JSONField(format="yyyy-MM-dd")//相当于 SimpleDateformat
 	private Date birthday;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'master' of https://github.com/1640249600/Healthy.git
 	public Zhuangtai getZhuangtai() {
 		return zhuangtai;
 	}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2018-11-27 09:43:32[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
 2018-11-27 09:45:34[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
 2018-11-27 09:48:52[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
@@ -833,3 +834,11 @@ java.sql.SQLException: ORA-00900: 无效 SQL 语句
 	at com.sun.proxy.$Proxy18.UserDelete(Unknown Source)
 	at com.service.impl.UsersServiceImpl.main(UsersServiceImpl.java:82)
 2018-11-28 21:29:12[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+=======
+2018-11-28 13:43:33[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:39:54[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 14:41:16[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 16:18:21[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 19:10:07[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-11-28 19:12:23[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+>>>>>>> branch 'master' of https://github.com/1640249600/Healthy.git
