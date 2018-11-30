@@ -72,5 +72,18 @@
   		<select id="findCount"  resultType="int">
   		  				select count(1) from DoctorList
   		</select>
+  		
+  		<!-- 添加医生信息 -->
+  		<insert parameterType="doctor" id="doctorAdd">
+  				insert into doctorlist (did,
+  				name,photo,sex,age,liuprice,tijiaotime,shid,tel
+  				idcard,zigecard,zhixingcard,
+  				zigepicture,zhixingpicture,idcardpicture,gongzuopicture) 
+  				values (seq_Doctor.nextval,
+  				#{name},#{photo},#{sex},#{age},#{liuprice},sysdate,#{shid},#{tel}
+  				#{idcard},#{zigecard},#{zhixingcard},
+  				#{zigepicture},#{zhixingpicture},#{idcardpicture},#{gongzuopicture})
+  		
+  		</insert>
   </mapper>
 

@@ -49,6 +49,12 @@ public void setDoctorListMapper(DoctorListMapper doctorListMapper) {
 		}
 	}
 
+	@Override
+	public boolean doctorAdd(Doctorlist dd) {
+		// TODO Auto-generated method stub
+		return doctorListMapper.doctorAdd(dd);
+	}
+
 	
 
 }

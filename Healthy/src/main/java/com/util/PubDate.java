@@ -7,7 +7,7 @@ import java.util.Date;
 public class PubDate {
 	
 			private static final DateFormat[] dfs = { 
-			new SimpleDateFormat("yyyy ��MM ��dd ��"),
+			new SimpleDateFormat("yyyy 年MM 月dd 日"),
 			new SimpleDateFormat("yyyy-MM-dd"),
 			new SimpleDateFormat("MM/dd/yyyy"),
 			new SimpleDateFormat("yyyy.MM.dd"), 

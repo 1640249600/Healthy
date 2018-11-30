@@ -50,44 +50,190 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- Begin of easyui-dialog -->
 <div id="DC_win" class="easyui-window" title="添加医生" style="width:600px;height:300px;"
     data-options="iconCls:'icon-save',mpdal:true,closed:true">
+    <form method="post" enctype="multipart/form-data" id="uploadForm">
+    	<table cellSpacing=0 cellPadding=5 border=0>
+    		
+    		<tr>
+    			
+    			<th style="width:100px;">姓名</th>
+    			<td>
+    				<input type="text" name="name"/>	
+    			</td>
+    			<th style="width:100px;">联系方式</th>
+    			<td>
+    				<input type="text" name="tel"/>	
+    			</td>
+    		</tr>
+    		<tr>
+    			<th ROWSPAN="3" style="width:100px;">头像</th>
+    			<td ROWSPAN="3" style="width:100px;">
+    				<input type="file" name="photo"/>
+    			</td>
+    			<th style="width:100px;">性别</th>
+    			<td style="width:100px;">
+    				<select name="sex">					
+					<option  value="1" >男</option>
+					<option  value="0" >女</option>					
+					</select>
+    			</td>
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">年龄</th>
+    			<td style="width:100px;">
+    				<input type="text" name="age"/>	
+    			</td>
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">身份证编号</th>
+    			<td>
+    				<input type="text" name="idcard"/>
+    			</td>
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">留言咨询费用</th>
+    			<td style="width:100px;">
+    				<input type="text" name="liuprice"/>
+    			</td>
+    			<th style="width:100px;">资格证编号</th>
+    			<td style="width:100px;">
+    				<input type="text" name="zigecard"/>
+    			</td>
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">执行证编号</th>
+    			<td style="width:100px;">
+    				<input type="text" name="zhixingcard"/>
+    			</td>
+    			
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">执行证</th>
+    			<td style="width:100px;">
+    				<input type="file" name="zhixingpicture"/>
+    			</td>
+    			
+    			<th style="width:100px;">资格证</th>
+    			<td style="width:100px;">
+    				
+    				<input type="file" name="zigepicture"/>
+    			</td>
+    			
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">身份证</th>
+    			<td style="width:100px;">
+    				<input type="file" name="idcardpicture"/>
+    					
+    			</td>
+    			
+    			<th style="width:100px;">工作证</th>
+    			<td style="width:100px;">
+    				<input type="file" name="gongzuopicture"/>
+    			</td>
+    			
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">状态</th>
+    			<td style="width:100px;">
+    				<select name="shid">					
+					<option  value="1" >已通过</option>
+					<option  value="0" >未审核</option>					
+					</select>
+    			</td>
+    			<td style="width:100px;"></td>
+    			<td style="width:100px;">
+    				<input type="button" value="保存" id="addDoc"/>
+    			</td>
+    		</tr>
+    	</table>    
+    </form></div>
+<div id="DCUP_win" class="easyui-window" title="添加医生" style="width:600px;height:300px;"
+    data-options="iconCls:'icon-save',mpdal:true,closed:true">
     <form id="formAdd" method="post">
     	<table cellSpacing=0 cellPadding=5 border=0>
     		
     		<tr>
-    			<td></td>
-    			<td>
-    				
-    			</td>
-    			<th>姓名</th>
+    			
+    			<th style="width:100px;">姓名</th>
     			<td>
     				<span id="name"></span>	
     			</td>
     		</tr>
     		<tr>
-    			<th ROWSPAN="3">头像</th>
-    			<td ROWSPAN="3">
-    				<img src="" width="80px" height="80px" id="photo"/>
+    			<th ROWSPAN="3" style="width:100px;">头像</th>
+    			<td ROWSPAN="3" style="width:100px;">
+    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="photo"/>
     			</td>
-    			<th>性别</th>
-    			<td>
+    			<th style="width:100px;">性别</th>
+    			<td style="width:100px;">
     				<span id="sex"></span>	
     			</td>
     		</tr>
     		<tr>
-    			<th>年龄</th>
-    			<td>
+    			<th style="width:100px;">年龄</th>
+    			<td style="width:100px;">
     				<span id="age"></span>	
     			</td>
     		</tr>
     		<tr>
-    			<th>身份证编号</th>
+    			<th style="width:100px;">身份证编号</th>
     			<td>
     				<span id="idcard"></span>	
     			</td>
     		</tr>
+    		<tr>
+    			<th style="width:100px;">留言咨询费用</th>
+    			<td style="width:100px;">
+    				<span id="liuprice"></span>	
+    			</td>
+    			<th style="width:100px;">资格证编号</th>
+    			<td style="width:100px;">
+    				<span id="zigecard"></span>	
+    			</td>
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">执行证编号</th>
+    			<td style="width:100px;">
+    				<span id="zhixingcard"></span>	
+    			</td>
+    			
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">执行证</th>
+    			<td style="width:100px;">
+    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="zhixingpicture"/>	
+    			</td>
+    			
+    			<th style="width:100px;">资格证</th>
+    			<td style="width:100px;">
+    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="zhixingpicture"/>	
+    			</td>
+    			
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">身份证</th>
+    			<td style="width:100px;">
+    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="zhixingpicture"/>	
+    			</td>
+    			
+    			<th style="width:100px;">工作证</th>
+    			<td style="width:100px;">
+    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="zhixingpicture"/>	
+    			</td>
+    			
+    		</tr>
+    		<tr>
+    			<th style="width:100px;">状态</th>
+    			<td style="width:100px;">
+    				<select name="shid" id="zid">					
+					<option  value="1" >已通过</option>
+					<option  value="0" >未审核</option>					
+					</select>
+    			</td>
+    			
+    		</tr>
     	</table>    
     </form></div>
-
 </body>
 <script type="text/javascript">
   		$(function(){
@@ -129,6 +275,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			
   				$("#DC_win").window("open");
   					
+  			});
+  			$("#addDoc").click(function(){
+  				var formData = new FormData($("#uploadForm")[0]);  
+					$.ajax({
+						url : 'doctorImport',
+						type : 'post',
+						data : formData,
+						dataType : 'json',
+						cache : false,
+						contentType : false,
+						processData : false,
+			
+						success : function(data) {
+							alert(data);
+						}
+					});
+  			
+  			
+  			
   			});
   			
   		

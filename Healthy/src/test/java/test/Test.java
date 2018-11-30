@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.pojo.Users;
 import com.pojo.VBuy;
-import com.service.UsersService;
 import com.service.VBuyService;
 
 public class Test {
@@ -52,11 +50,7 @@ public class Test {
 		
 	public static void main(String[] args) {
 		Test tt = new Test();
-		//tt.getAllVBuy();
-<<<<<<< HEAD
-		//tt.getUser();
-=======
 		tt.getAllVBuy();
->>>>>>> branch 'master' of https://github.com/1640249600/Healthy.git
+		tt.getAllVBuy();
 	}
 }
