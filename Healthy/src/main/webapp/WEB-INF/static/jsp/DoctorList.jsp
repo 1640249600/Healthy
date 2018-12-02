@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     
-    <title>My JSP 'VipBuy.jsp' starting page</title>
+    <title>My JSP 'DoctorList.jsp' starting page</title>
    		<link rel="stylesheet" type="text/css" href="<%=path %>/static/themes/default/easyui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=path %>/static/css/wu.css" />
 	<link rel="stylesheet" type="text/css" href="<%=path %>/static/css/icon.css" />
@@ -48,29 +48,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 </div>
 <!-- Begin of easyui-dialog -->
-<div id="DC_win" class="easyui-window" title="添加医生" style="width:600px;height:300px;"
+<div id="DC_win" class="easyui-window" title="添加医生" style="width:900px;height:300px;"
     data-options="iconCls:'icon-save',mpdal:true,closed:true">
     <form method="post" enctype="multipart/form-data" id="uploadForm">
     	<table cellSpacing=0 cellPadding=5 border=0>
     		
     		<tr>
     			
-    			<th style="width:100px;">姓名</th>
+    			<th style="width:200px;">姓名</th>
     			<td>
     				<input type="text" name="name"/>	
     			</td>
-    			<th style="width:100px;">联系方式</th>
+    			<th style="width:200px;">联系方式</th>
     			<td>
     				<input type="text" name="tel"/>	
     			</td>
     		</tr>
     		<tr>
-    			<th ROWSPAN="3" style="width:100px;">头像</th>
-    			<td ROWSPAN="3" style="width:100px;">
+    			<th ROWSPAN="4" style="width:200px;">头像</th>
+    			<td ROWSPAN="4" style="width:200px;">
     				<input type="file" name="photo"/>
     			</td>
-    			<th style="width:100px;">性别</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">性别</th>
+    			<td style="width:200px;">
     				<select name="sex">					
 					<option  value="1" >男</option>
 					<option  value="0" >女</option>					
@@ -78,159 +78,199 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			</td>
     		</tr>
     		<tr>
-    			<th style="width:100px;">年龄</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">年龄</th>
+    			<td style="width:200px;">
     				<input type="text" name="age"/>	
     			</td>
     		</tr>
     		<tr>
-    			<th style="width:100px;">身份证编号</th>
+    			<th style="width:200px;">身份证编号</th>
     			<td>
     				<input type="text" name="idcard"/>
     			</td>
     		</tr>
     		<tr>
-    			<th style="width:100px;">留言咨询费用</th>
-    			<td style="width:100px;">
+    		</tr>
+    		<tr>
+    			<th style="width:200px;">留言咨询费用</th>
+    			<td style="width:200px;">
     				<input type="text" name="liuprice"/>
     			</td>
-    			<th style="width:100px;">资格证编号</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">资格证编号</th>
+    			<td style="width:200px;">
     				<input type="text" name="zigecard"/>
     			</td>
     		</tr>
     		<tr>
-    			<th style="width:100px;">执行证编号</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">执行证编号</th>
+    			<td style="width:200px;">
     				<input type="text" name="zhixingcard"/>
     			</td>
     			
     		</tr>
     		<tr>
-    			<th style="width:100px;">执行证</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">执行证</th>
+    			<td style="width:200px;">
     				<input type="file" name="zhixingpicture"/>
     			</td>
     			
-    			<th style="width:100px;">资格证</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">资格证</th>
+    			<td style="width:200px;">
     				
     				<input type="file" name="zigepicture"/>
     			</td>
     			
     		</tr>
     		<tr>
-    			<th style="width:100px;">身份证</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">身份证</th>
+    			<td style="width:200px;">
     				<input type="file" name="idcardpicture"/>
     					
     			</td>
     			
-    			<th style="width:100px;">工作证</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">工作证</th>
+    			<td style="width:200px;">
     				<input type="file" name="gongzuopicture"/>
     			</td>
     			
     		</tr>
     		<tr>
-    			<th style="width:100px;">状态</th>
-    			<td style="width:100px;">
+    			<th style="width:200px;">状态</th>
+    			<td style="width:200px;">
     				<select name="shid">					
 					<option  value="1" >已通过</option>
 					<option  value="0" >未审核</option>					
 					</select>
     			</td>
-    			<td style="width:100px;"></td>
-    			<td style="width:100px;">
+    		</tr>
+    		<tr>
+    			
+    			<td style="width:200px;"></td>
+    			<td style="width:200px;">
     				<input type="button" value="保存" id="addDoc"/>
+    			</td>
+    			<td style="width:200px;"></td>
+    			<td style="width:200px;">
+    				<input type="button" value="保存" id="addDocQ"/>
     			</td>
     		</tr>
     	</table>    
     </form></div>
-<div id="DCUP_win" class="easyui-window" title="添加医生" style="width:600px;height:300px;"
+<div id="DCUP_win" class="easyui-window" title="修改医生信息" style="width:900px;height:300px;"
     data-options="iconCls:'icon-save',mpdal:true,closed:true">
-    <form id="formAdd" method="post">
+    <form id="formUP" method="post" enctype="multipart/form-data">
     	<table cellSpacing=0 cellPadding=5 border=0>
     		
     		<tr>
     			
-    			<th style="width:100px;">姓名</th>
+    			<th style="width:200px;">姓名</th>
     			<td>
-    				<span id="name"></span>	
+    				<input type="hidden" name="did" id="did"/>	
+    				<input type="text" name="name" id="name"/>	
     			</td>
-    		</tr>
-    		<tr>
-    			<th ROWSPAN="3" style="width:100px;">头像</th>
-    			<td ROWSPAN="3" style="width:100px;">
-    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="photo"/>
-    			</td>
-    			<th style="width:100px;">性别</th>
-    			<td style="width:100px;">
-    				<span id="sex"></span>	
-    			</td>
-    		</tr>
-    		<tr>
-    			<th style="width:100px;">年龄</th>
-    			<td style="width:100px;">
-    				<span id="age"></span>	
-    			</td>
-    		</tr>
-    		<tr>
-    			<th style="width:100px;">身份证编号</th>
+    			<th style="width:200px;">联系方式</th>
     			<td>
-    				<span id="idcard"></span>	
+    				<input type="text" name="tel" id="tel"/>	
     			</td>
     		</tr>
     		<tr>
-    			<th style="width:100px;">留言咨询费用</th>
-    			<td style="width:100px;">
-    				<span id="liuprice"></span>	
+    			<th ROWSPAN="4" style="width:100px;">头像</th>
+    			<td ROWSPAN="4" style="width:100px;">
+    				<img width="60px" height="60px" border="0" src='' id="photo"/><br/>
+    				<input type="hidden" name="photo1"/>
+    				修改:<input type="file" name="photo" />
     			</td>
-    			<th style="width:100px;">资格证编号</th>
-    			<td style="width:100px;">
-    				<span id="zigecard"></span>	
+    			<th style="width:200px;">性别</th>
+    			<td style="width:200px;">
+    				<select name="sex" id="sex">					
+					<option  value="1" >男</option>
+					<option  value="0" >女</option>					
+					</select>
     			</td>
     		</tr>
     		<tr>
-    			<th style="width:100px;">执行证编号</th>
-    			<td style="width:100px;">
-    				<span id="zhixingcard"></span>	
+    			<th style="width:200px;">年龄</th>
+    			<td style="width:200px;">
+    				<input type="text" name="age" id="age"/>	
+    			</td>
+    		</tr>
+    		<tr>
+    			<th style="width:200px;">身份证编号</th>
+    			<td>
+    				<input type="text" name="idcard" id="idcard"/>
+    			</td>
+    		</tr>
+    		<tr>
+    		</tr>
+    		<tr>
+    			<th style="width:200px;">留言咨询费用</th>
+    			<td style="width:200px;">
+    				<input type="text" name="liuprice" id="liuprice"/>
+    			</td>
+    			<th style="width:200px;">资格证编号</th>
+    			<td style="width:200px;">
+    				<input type="text" name="zigecard" id="zigecard"/>
+    			</td>
+    		</tr>
+    		<tr>
+    			<th style="width:200px;">执行证编号</th>
+    			<td style="width:200px;">
+    				<input type="text" name="zhixingcard" id="zhixingcard"/>
     			</td>
     			
     		</tr>
     		<tr>
-    			<th style="width:100px;">执行证</th>
-    			<td style="width:100px;">
-    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="zhixingpicture"/>	
+    			<th style="width:200px;">执行证</th>
+    			<td style="width:200px;">
+    				<img width="60px" height="60px" border="0" src='' id="zhixingpicture"/><br/>
+    				修改:<input type="file" name="zhixingpicture"/>
+    				<input type="hidden" name="zhixingpicture1"/>
     			</td>
     			
-    			<th style="width:100px;">资格证</th>
-    			<td style="width:100px;">
-    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="zhixingpicture"/>	
-    			</td>
-    			
-    		</tr>
-    		<tr>
-    			<th style="width:100px;">身份证</th>
-    			<td style="width:100px;">
-    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="zhixingpicture"/>	
-    			</td>
-    			
-    			<th style="width:100px;">工作证</th>
-    			<td style="width:100px;">
-    				<img src="/Healthy/static/images/hhhhhhh.png" width="80px" height="80px" id="zhixingpicture"/>	
+    			<th style="width:200px;">资格证</th>
+    			<td style="width:200px;">
+    				<img width="60px" height="60px" border="0" src='' id="zigepicture"/><br/>
+    				修改:<input type="file" name="zigepicture"/>
+    				<input type="hidden" name="zigepicture1"/>
     			</td>
     			
     		</tr>
     		<tr>
-    			<th style="width:100px;">状态</th>
-    			<td style="width:100px;">
-    				<select name="shid" id="zid">					
+    			<th style="width:200px;">身份证</th>
+    			<td style="width:200px;">
+	    			<img width="60px" height="60px" border="0" src='' id="idcardpicture"/><br/>
+	    			修改:	<input type="file" name="idcardpicture"/>
+	    			<input type="hidden" name="idcardpicture1"/>
+    					
+    			</td>
+    			
+    			<th style="width:200px;">工作证</th>
+    			<td style="width:200px;">
+	    			<img width="60px" height="60px" border="0" src='' id="gongzuopicture"/><br/>
+	    			修改:	<input type="file" name="gongzuopicture"/>
+	    			<input type="hidden" name="gongzuopicture1"/>
+    			</td>
+    			
+    		</tr>
+    		<tr>
+    			<th style="width:200px;">状态</th>
+    			<td style="width:200px;">
+    				<select name="shid" id="shid">					
 					<option  value="1" >已通过</option>
 					<option  value="0" >未审核</option>					
 					</select>
     			</td>
     			
+    		</tr>
+    		<tr>
+	    		<td style="width:200px;"></td>
+	    			<td style="width:200px;">
+	    				<input type="button" value="修改" id="UpDoc"/>
+	    			</td>
+    			<td style="width:200px;"></td>
+    			<td style="width:200px;">
+    				<input type="button" value="取消" id="UpDocQ"/>
+    			</td>
     		</tr>
     	</table>    
     </form></div>
@@ -288,16 +328,183 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						processData : false,
 			
 						success : function(data) {
-							alert(data);
+							if(data == true){
+								$.messager.alert({
+					        	title:'提示消息',
+					        	msg:"添加成功",
+					        	timeout:3000,
+					        	showType:'slide'
+					        	});
+							}else{
+								$.messager.alert({
+					        	title:'提示消息',
+					        	msg:"添加失败",
+					        	timeout:3000,
+					        	showType:'slide'
+					        	});
+							}
 						}
 					});
+					// 关闭窗口
+						$("#DC_win").window("close");
+						// 表格重新加载
+						$("#DCTab").datagrid("reload");
   			
   			
   			
   			});
   			
+  			
+  			//删除
+			$("#remove").click(function(){
+					var arr =$('#DCTab').datagrid('getSelections');
+					
+							if(arr.length < 1){
+								$.messager.alert({
+									title:'提示信息!',
+									msg:'必須选择一行及以上数据进行刪除!'
+										});
+							}else{
+							$.messager.confirm('提示信息' , '确认删除?' , function(r){
+									if(r){
+											var ids = '';
+											for(var i =0 ;i<arr.length;i++){
+												ids += arr[i].did + ',' ;
+											}
+											alert(ids);
+											ids = ids.substring(0 , ids.length-1);
+											$.post('<%=path%>/doctorDel' , {did:ids} , function(result){
+												
+												if(result == true){
+													$.messager.alert({
+										        	title:'提示消息',
+										        	msg:"添加成功",
+										        	timeout:3000,
+										        	showType:'slide'
+										        	});
+												}else{
+													$.messager.alert({
+										        	title:'提示消息',
+										        	msg:"添加失败",
+										        	timeout:3000,
+										        	showType:'slide'
+										        	});
+												}
+												//1 刷新数据表格 
+												$('#DCTab').datagrid('reload');
+												//2 清空idField   
+												$('#DCTab').datagrid('unselectAll');
+												//3 给提示信息 
+											});
+									} else {
+										
+										//2 清空idField   
+									$('#DCTab').datagrid('unselectAll');
+									}
+							});
+							
+							
+							}
+										
+			});
+  			
   		
-  		
+  			//修改
+			$("#openEdit").click(function(){
+					var arr =$('#DCTab').datagrid('getSelections');
+					
+							if(arr.length > 1 || arr.length == 0){
+								$.messager.alert({
+									title:'提示信息!',
+									msg:'必須选择一行数据进行修改!'		
+								});
+								//2 清空idField  
+								 
+								$('#DCTab').datagrid('unselectAll');
+							}else if(arr.length == 1){									
+								var ids = arr[0].did;
+								
+								$.ajax({
+									type: 'post' ,
+									url: "doctorUp",
+									cache:false ,
+									data:"did="+ids,
+									dataType:'json',
+									success:function(data){ 
+							    		 	$("#did").val(data.did);
+							    		 	$("#name").val(data.name);
+							    		 	$("#tel").val(data.tel);
+							    		 	$("#photo").attr("src",data.photo);
+							    		 	$("#sex").val(data.sex);
+							    		 	$("#age").val(data.age);
+											$("#idcard").val(data.idcard);
+											$("#liuprice").val(data.liuprice);
+											$("#zigecard").val(data.zigecard);
+											$("#zhixingcard").val(data.zhixingcard);
+											$("#zhixingpicture").attr("src",data.zhixingpicture);
+											$("#zigepicture").attr("src",data.zigepicture);
+											$("#idcardpicture").attr("src",data.idcardpicture);
+											$("#gongzuopicture").attr("src",data.gongzuopicture);
+											$("#shid").val(data.shid);
+											$("#DCUP_win").window("open");
+											
+								     }
+							    });
+							}
+										
+			});
+			
+			$("#UpDoc").click(function(){
+				var formData = new FormData($("#formUP")[0]);  
+				alert(formData);
+					 $.ajax({
+						type: 'post' ,
+						url: "doctorUpdate",
+						data:formData,
+						dataType:'json' ,
+						cache : false,
+						contentType : false,
+						processData : false,
+						success:function(result){ 
+					    	if(result == true){
+							    	alert(result);
+								        $.messager.alert({
+								        	title:'提示消息',
+								        	msg:"修改成功",
+								        	timeout:3000,
+								        	showType:'slide'
+								        	});
+								  
+							}else{
+						    	alert(result);
+										$.meesager.alert({
+											title:'提示消息' , 
+											msg:"修改失败",
+								        	timeout:3000,
+								        	showType:'slide'
+										});
+								
+					     	}
+					     $('#DCTab').datagrid('unselectAll');
+						     	// 关闭窗口
+								$("#DCUP_win").window("close");
+								// 表格重新加载
+								$("#DCTab").datagrid("reload");
+					     
+						}
+				    });
+			
+			
+			
+			
+			});
+			$("#UpDocQ").click(function(){
+				$('#DCTab').datagrid('unselectAll');
+				     	// 关闭窗口
+						$("#DCUP_win").window("close");
+						// 表格重新加载
+						$("#DCTab").datagrid("reload");
+			});
   		});
 </script>
 </html>

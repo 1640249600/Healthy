@@ -117,7 +117,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				url:"VbuyFindAll",
   				columns:[[
   					{field:'ck',width:50,checkbox:true},
-  					{field:'id',title:'vip名称',width:300,align:'center'},
   					{field:'grade',title:'vip名称',width:300,align:'center'},
   					{field:'state',title:'状态',width:300,align:'center'},
   					
@@ -199,6 +198,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											for(var i =0 ;i<arr.length;i++){
 												ids += arr[i].id + ',' ;
 											}
+											alert(ids);
 											ids = ids.substring(0 , ids.length-1);
 											$.post('<%=path%>/Vbuydel' , {id:ids} , function(result){
 												//1 刷新数据表格 

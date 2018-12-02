@@ -76,14 +76,44 @@
   		<!-- 添加医生信息 -->
   		<insert parameterType="doctor" id="doctorAdd">
   				insert into doctorlist (did,
-  				name,photo,sex,age,liuprice,tijiaotime,shid,tel
+  				name,photo,sex,age,liuprice,
+  				tijiaotime,shid,tel,
   				idcard,zigecard,zhixingcard,
   				zigepicture,zhixingpicture,idcardpicture,gongzuopicture) 
   				values (seq_Doctor.nextval,
-  				#{name},#{photo},#{sex},#{age},#{liuprice},sysdate,#{shid},#{tel}
+  				#{name},#{photo},#{sex},#{age},#{liuprice},
+  				sysdate,#{shid},#{tel},
   				#{idcard},#{zigecard},#{zhixingcard},
   				#{zigepicture},#{zhixingpicture},#{idcardpicture},#{gongzuopicture})
   		
   		</insert>
+  		
+  		<!-- //删除 -->
+  		
+  		<delete parameterType="int" id="doctorDel">
+  			delete from doctorlist where did = #{did}
+  		
+  		</delete>
+  		
+  		<!--修改的查询 -->
+  		
+  		<select parameterType="int" resultType="doctor" id="doctorUp">
+  		
+  			select did,
+  				name,photo,sex,age,liuprice,shid,tel,
+  				idcard,zigecard,zhixingcard,
+  				zigepicture,zhixingpicture,idcardpicture,gongzuopicture 
+  				from doctorlist 
+  				where did=#{did}
+  				
+  		
+  		</select>
+  		<update id="doctorUpdate" parameterType="doctor">
+  				update doctorlist set name=#{name},photo=#{photo},
+  				sex=#{sex},age=#{age},liuprice=#{liuprice},shid=#{shid},
+  				tel=#{tel},idcard=#{idcard},zigecard=#{zigecard},zhixingcard=#{zhixingcard},
+  				zigepicture=#{zigepicture},zhixingpicture=#{zhixingpicture},
+  				idcardpicture=#{idcardpicture},gongzuopicture=#{gongzuopicture} where did=#{did}
+  		</update>
   </mapper>
 

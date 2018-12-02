@@ -25,4 +25,10 @@ public class VipAction {
 		return "Users";
 	}
 	
+	//跳转编辑器
+		@RequestMapping("/toEditor")
+		public String toEditor(){
+			return "ueditor";
+		}
+		
 }

@@ -43,16 +43,34 @@ public void setDoctorListMapper(DoctorListMapper doctorListMapper) {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		DoctorService dd = (DoctorService) ctx.getBean("doctorService");
-		List<Doctorlist> ld = dd.getAllDoctor(1,3);
-		for (Doctorlist ds : ld) {
-			System.out.println(ds.getShenhe().getChecked());
-		}
+		Doctorlist ld = dd.doctorUp(18);
+		
+		System.out.println(ld.getGongzuopicture());
 	}
-
+//添加
 	@Override
 	public boolean doctorAdd(Doctorlist dd) {
 		// TODO Auto-generated method stub
 		return doctorListMapper.doctorAdd(dd);
+	}
+//删除
+	@Override
+	public boolean doctorDel(int did) {
+		// TODO Auto-generated method stub
+		return doctorListMapper.doctorDel(did);
+	}
+
+	//修改
+	@Override
+	public Doctorlist doctorUp(int did) {
+		// TODO Auto-generated method stub
+		return doctorListMapper.doctorUp(did);
+	}
+
+	@Override
+	public boolean doctorUpdate(Doctorlist dd) {
+		// TODO Auto-generated method stub
+		return doctorListMapper.doctorUpdate(dd);
 	}
 
 	
