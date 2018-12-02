@@ -1,5 +1,1 @@
-2018-11-30 11:54:43[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
-2018-11-30 11:55:35[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
-2018-11-30 11:56:07[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
-2018-11-30 13:38:27[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
-2018-11-30 14:10:40[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL
+2018-12-2 20:33:08[ERROR](DruidDataSource.java:805) invalid oracle validationQuery. select 1, may should be : select 1 FROM DUAL

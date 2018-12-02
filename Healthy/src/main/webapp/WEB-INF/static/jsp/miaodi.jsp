@@ -25,8 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<form id="miaodi" method="post">
    		<input type="text" name="tel" id="tel"/>   
     	<input type="button" id="btn" value="获取验证码"/><br/>
+    	请输入要修改的密码:<input type="text" name="password"/><br/>
     	<input type="text" name="yanzheng"/><br/>
-    	<input type="hidden" name="mi" id="mi"/>
+    	<input type="text" name="mi" id="mi"/>
     	
     	<input type="button" id="btn_edit" value="修改"/><br/>
     </form>
@@ -56,13 +57,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						cache:false ,
 						data:$('#miaodi').serialize() ,
 						dataType:'json' ,
-						success:function(result){ 
+						success:function(data){ 
 				    		
-					        if(result == true){
-				    			alert("修改成功")
-				    		}else{
-				    			alert("修改失败")
-				    		}
+					        
+				    			alert(data.result)
+				    		
 					     }
 				    });    			 			
     	});

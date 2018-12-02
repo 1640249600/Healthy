@@ -1,8 +1,6 @@
 package com.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -13,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.UserMapper;
 import com.pojo.Users;
-import com.pojo.VBuy;
-import com.pojo.Zhuangtai;
 import com.service.UsersService;
 import com.util.Tools;
 

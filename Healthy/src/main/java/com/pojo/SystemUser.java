@@ -29,4 +29,11 @@ public class SystemUser {
 		this.password = password;
 	}
 	private String password;
+	private String tel;
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 }

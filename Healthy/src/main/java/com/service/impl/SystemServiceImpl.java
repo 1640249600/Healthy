@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.dao.SystemMapper;
 import com.pojo.SystemUser;
 import com.service.SystemService;
+import com.service.UsersService;
 @Service("systemService")
 public class SystemServiceImpl implements SystemService {
 	@Resource
@@ -23,5 +24,18 @@ public class SystemServiceImpl implements SystemService {
 		// TODO Auto-generated method stub
 		return systemMapper.toLogin(ss);
 	}
+	//找到用户
+	@Override
+	public SystemUser sysFind(String tel) {
+		// TODO Auto-generated method stub
+		return systemMapper.sysFind(tel);
+	}
+	//修改密码
+	@Override
+	public boolean sysSetPass(SystemUser ss) {
+		// TODO Auto-generated method stub
+		return systemMapper.sysSetPass(ss);
+	}
+	
 
 }
