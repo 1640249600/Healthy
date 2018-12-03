@@ -19,7 +19,7 @@ private LocService locService;
 public LocService getLocService() {
 	return locService;
 }
-
+ 
 public void setLocService(LocService locService) {
 	this.locService = locService;
 }

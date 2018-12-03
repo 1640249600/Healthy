@@ -7,7 +7,7 @@
 		<result column="name" property="name"></result>
 		<result column="content" property="content"></result>
 		<result column="time" property="time"></result>
-	</resultMap>
+	</resultMap> 
 	<select id="getWorks" resultMap="WorksList" parameterType="int">
 	 select * from
 	 (select id,name,content,time,rownum rownum_ from words where rownum &lt;=#{page} * #{rows}) where rownum_ &gt; (#{page}-1)* #{rows}

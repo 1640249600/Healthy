@@ -24,7 +24,7 @@ private UsersService usersService;
 public UsersService getUsersService() {
 	return usersService;
 }
-
+ 
 public void setUsersService(UsersService usersService) {
 	this.usersService = usersService;
 }

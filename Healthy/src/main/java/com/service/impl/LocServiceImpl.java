@@ -11,7 +11,7 @@ import com.service.LocService;
 @Service("locService")
 @Transactional
 public class LocServiceImpl implements LocService {
-	@Resource
+	@Resource 
 	private LocMapper locMapper;
 	public LocMapper getLocMapper() {
 		return locMapper;

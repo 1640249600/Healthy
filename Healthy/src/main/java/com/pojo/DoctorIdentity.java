@@ -8,7 +8,7 @@ public class DoctorIdentity {
 	}
 	public void setIid(Integer iid) {
 		this.iid = iid;
-	}
+	} 
 	public String getPosition() {
 		return position;
 	}

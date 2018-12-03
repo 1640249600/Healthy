@@ -18,7 +18,7 @@ import com.service.VBuyService;
 public class VBuyServiceImpl implements VBuyService {
 	@Resource
 	private VBuyDao vbuyDao;
-	
+	 
 	public VBuyDao getVbuyDao() {
 		return vbuyDao;
 	}

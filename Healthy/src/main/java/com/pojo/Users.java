@@ -11,7 +11,7 @@ public class Users implements Serializable{
 
 	private Zhuangtai zhuangtai;
 	private VBuy vbuy;
-	
+	 
 	private Integer id;
 	private String name;
 	private String telephone;

@@ -14,7 +14,7 @@ import com.service.OrderService;
 @Service("orderService")
 @Transactional
 public class OrderServiceImpl implements OrderService {
-	@Resource
+	@Resource 
 	private OrderMapper orderMapper;
 	public OrderMapper getOrderMapper() {
 		return orderMapper;

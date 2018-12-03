@@ -13,7 +13,7 @@ import com.dao.DepartmentMapper;
 import com.pojo.Department;
 import com.service.DepartmentService;
 @Service("departmentService")
-@Transactional
+@Transactional 
 public class DepartmentServiceImpl implements DepartmentService{
 @Resource
 private DepartmentMapper departmentMapper;

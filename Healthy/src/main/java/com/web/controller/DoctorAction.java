@@ -31,7 +31,7 @@ public class DoctorAction {
 	public DoctorService getDoctorService() {
 		return doctorService;
 	}
-
+ 
 	public void setDoctorService(DoctorService doctorService) {
 		this.doctorService = doctorService;
 	}

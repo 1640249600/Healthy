@@ -17,7 +17,7 @@ public class DepartmentAction {
 	public DepartmentService getDepartmentService() {
 		return departmentService;
 	}
-
+ 
 	public void setDepartmentService(DepartmentService departmentService) {
 		this.departmentService = departmentService;
 	}

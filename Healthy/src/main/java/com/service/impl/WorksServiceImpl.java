@@ -19,7 +19,7 @@ public class WorksServiceImpl implements WorksService {
 private WorksMapper worksMapper;
 	public WorksMapper getWorksMapper() {
 	return worksMapper;
-}
+} 
 
 public void setWorksMapper(WorksMapper worksMapper) {
 	this.worksMapper = worksMapper;

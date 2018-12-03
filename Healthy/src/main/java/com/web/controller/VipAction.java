@@ -10,7 +10,7 @@ public class VipAction {
 	
 	@RequestMapping("/login")
 	public String pageCount(){
-		
+		 
 		return "index";
 	}
 	

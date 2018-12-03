@@ -9,7 +9,7 @@ public class Words {
 	private Date time;
 	public Integer getId() {
 		return id;
-	}
+	} 
 	public void setId(Integer id) {
 		this.id = id;
 	}

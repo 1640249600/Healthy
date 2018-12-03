@@ -22,7 +22,7 @@ import com.util.Tools;
 @Service("usersService")
 @Transactional
 public class UsersServiceImpl implements UsersService {
-	@Resource
+	@Resource 
 	private UserMapper userMapper;
 	public UserMapper getUserMapper() {
 		return userMapper;

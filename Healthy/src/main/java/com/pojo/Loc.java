@@ -13,7 +13,7 @@ public class Loc {
 	}
 	public void setSystemUser(SystemUser systemUser) {
 		this.systemUser = systemUser;
-	}
+	} 
 	private int id;
 	private int sid;
 	private String type;

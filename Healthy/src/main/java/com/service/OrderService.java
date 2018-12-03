@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.pojo.Orders;
 
-
+ 
 public interface OrderService {
 	//查询
 		public List<Orders> getOrders(@Param(value="page")int page,@Param(value="rows")int rows);

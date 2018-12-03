@@ -5,4 +5,4 @@
     	<select id="toLogin" parameterType="su" resultType="boolean">
     		select * from system where name=#{name} and password=#{password}
     	</select>
-    </mapper> 
+    </mapper>  

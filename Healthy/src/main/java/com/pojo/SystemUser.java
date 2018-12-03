@@ -12,7 +12,7 @@ public class SystemUser {
 	}
 	public int getRid() {
 		return rid;
-	}
+	} 
 	public void setRid(int rid) {
 		this.rid = rid;
 	}

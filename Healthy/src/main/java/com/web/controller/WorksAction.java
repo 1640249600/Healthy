@@ -21,7 +21,7 @@ public WorksService getWorksService() {
 }
 public void setWorksService(WorksService worksService) {
 	this.worksService = worksService;
-}
+} 
 //分页
 @RequestMapping("/toWorksList")
 @ResponseBody

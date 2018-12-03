@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.alibaba.fastjson.annotation.JSONField;
-
+ 
 public class Doctorlist {
 	 private Integer did;
 	   private String name;                 //VARCHAR2(20),

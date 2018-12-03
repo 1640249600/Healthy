@@ -10,7 +10,7 @@
  			<result column="time" property="time"></result>
  			<association property="systemUser" javaType="su"> 
  					<result column="id" property="id"></result>
- 					<result column="rid" property="rid"></result>
+ 			 		<result column="rid" property="rid"></result>
  		 			<result column="name" property="name"></result>
  					<result column="password" property="password"></result>
  			</association>

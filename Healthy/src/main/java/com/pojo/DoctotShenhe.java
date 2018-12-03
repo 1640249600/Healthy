@@ -8,7 +8,7 @@ public class DoctotShenhe {
 	}
 	public void setShid(Integer shid) {
 		this.shid = shid;
-	}
+	} 
 	public String getChecked() {
 		return checked;
 	}

@@ -6,7 +6,7 @@
   		<resultMap type="dept" id="departmentList">
   			<result column="id" property="id" />
   			<result column="name" property="name" />
-  		</resultMap>
+  		</resultMap> 
   		<select id="getDepartmentList" resultMap="departmentList" parameterType="int">
   			select * from 
   			(select id,dname,rownum rownum_ from DEPARTMENT where rownum &lt;= #{page} * #{rows}) where rownum_ &gt; (#{page} -  1) * #{rows}
