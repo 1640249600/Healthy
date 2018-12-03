@@ -12,3 +12,4 @@ public interface DepartmentMapper {
 	//查询总数
 	public int countDepartment();
 }
+

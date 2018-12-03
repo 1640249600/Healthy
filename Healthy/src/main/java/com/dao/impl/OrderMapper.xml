@@ -8,7 +8,7 @@
 				<result column="userid" property="userId"></result>
 				<result column="ostate" property="ostate"></result>
 				<result column="doctorid" property="doctorId"></result>
-				
+			
 			<association property="user" javaType="us">
 				<result column="id"  property="id"></result>
     			<result column="vid"  property="vid"></result>

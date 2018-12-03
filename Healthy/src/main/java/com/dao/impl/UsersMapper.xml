@@ -9,7 +9,7 @@
     			<result column="name"  property="name"></result>
     			<result column="telephone"  property="telephone"></result>
     			<result column="evaluate"  property="evaluate"></result>
-    			<result column="sevaluate"  property="sevaluate"></result>
+     			<result column="sevaluate"  property="sevaluate"></result>
     			<result column="devaluate"  property="devaluate"></result>
     			<result column="addtime"  property="addtime"></result>
     			<result column="hand"  property="hand"></result>

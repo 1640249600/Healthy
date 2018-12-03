@@ -8,3 +8,4 @@ public interface DoctorDao {
 	//得到所有医生信息
 	public List<Doctorlist> getAllDoctor();
 }
+

@@ -16,3 +16,5 @@ public interface LocMapper {
 	//读取表格
 	public List<Loc> readXls(Integer id,String synopisis,Integer sid,String type,Date time);
 }
+
+

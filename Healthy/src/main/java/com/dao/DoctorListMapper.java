@@ -12,7 +12,6 @@ public interface DoctorListMapper {
 	public int findCount();
 	//添加
 	public boolean doctorAdd(Doctorlist dd);
-	
 	//删除
 	public boolean doctorDel(@Param(value="did")int did);
 	

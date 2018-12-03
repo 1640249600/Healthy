@@ -10,7 +10,7 @@
   		<select id="getDepartmentList" resultMap="departmentList" parameterType="int">
   			select * from 
   			(select id,dname,rownum rownum_ from DEPARTMENT where rownum &lt;= #{page} * #{rows}) where rownum_ &gt; (#{page} -  1) * #{rows}
-  		</select>
+  		</select> 
   		<select id="countDepartment" resultType="int">
   			select count(1) from department
   		</select>

@@ -11,7 +11,7 @@
 	<select id="getWorks" resultMap="WorksList" parameterType="int">
 	 select * from
 	 (select id,name,content,time,rownum rownum_ from words where rownum &lt;=#{page} * #{rows}) where rownum_ &gt; (#{page}-1)* #{rows}
-	</select>
+	</select> 
 	<select id="countWorks" resultType="int">
 		select count(1) from Words
 	</select>

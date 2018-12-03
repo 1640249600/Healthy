@@ -5,3 +5,4 @@ public interface SystemMapper {
 //登录
 	public boolean toLogin(SystemUser ss);
 }
+

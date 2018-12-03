@@ -10,7 +10,7 @@
   				<result column="photo" property="photo"/>
   				<result column="deptid" property="deptid"/>
   				<result column="sid" property="sid"/>
-  				<result column="zid" property="zid"/>
+   				<result column="zid" property="zid"/>
   				<result column="iid" property="iid"/>
   				<result column="searchlable" property="searchlable"/>
   				<result column="tjtime" property="tjtime"/>
