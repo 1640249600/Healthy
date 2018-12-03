@@ -1,6 +1,8 @@
 package com.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -11,7 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.UserMapper;
 import com.pojo.Users;
+import com.pojo.VBuy;
+import com.pojo.Zhuangtai;
 import com.service.UsersService;
+import com.util.Tools;
+
+
 @Service("usersService")
 @Transactional
 public class UsersServiceImpl implements UsersService {
@@ -62,7 +69,22 @@ public class UsersServiceImpl implements UsersService {
 		return userMapper.UserUpdate(uu);
 	}
 	public static void main(String[] args) {
-		System.out.println("----");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UsersService uu=(UsersService) ctx.getBean("usersService");
+		//List<Users> ll=uu.getUsers(1, 2);
+		
+		
+		Users u=new Users();
+		u.setId(5);
+		u.setName("张三");
+		u.setTelephone("13122653246");
+		u.setVid(9);
+		u.setZid(6);
+		u.setBirthday(Tools.StringToDate("1998-06-12"));
+		//boolean mm=u.UserUpdate(uu);
+		//boolean bb=uu.UserDelete(35);
+		//System.out.println(mm);
+		
 	}
 	
 }

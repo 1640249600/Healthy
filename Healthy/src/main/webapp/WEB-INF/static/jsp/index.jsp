@@ -40,33 +40,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<div id="aa" class="easyui-accordion" fit="true" >   
 			    <div title="服务管理" data-options="iconCls:'icon-application-cascade'" style="overflow:auto;padding:10px;">   
 			         <ul class="easyui-tree wu-side-tree">
-			         <li><a href="<%=path %>/vip" class="menuA">客户管理</a></li>
 			         <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-2.html" iframe="0">vip购买管理</a></li>
-                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">VIP管理</a></li>
+                    <li iconCls="icon-users"><a href="<%=path %>/vip" data-icon="icon-users" class="menuA">VIP管理</a></li>
                     <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">Vip用户电脑咨询费用折扣</a></li>
                     <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">vip简介</a></li>
                     <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">vip折扣管理</a></li>
-                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">留言咨询管理</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="<%=path %>/toEditor" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">留言咨询管理</a></li>
                		<li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">平台医生电话咨询费用折扣</a></li>
                		<li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">电话咨询管理</a></li>
                		<li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">平台医生咨询费用管理</a></li>		
                 </ul>
-                
 			    </div>   
-			    <div title="用户管理" data-options="iconCls:'icon-application-form-edit'" style="padding:10px;">   
-			         <ul class="easyui-tree wu-side-tree">
+			    <div title="用户管理" data-options="iconCls:'icon-application-form-edit'" style="padding:10px;" data-link="<%=path %>/toOrder">   
+			        <ul class="easyui-tree wu-side-tree">
+			        <li iconCls="cart_full"><a href="<%=path %>/toOrder" data-icon="icon-users" class="menuA">订单管理</a></li>
                 	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">医生信息管理</a></li>
-                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">医生资料审核管理</a></li>
-                    <li iconCls="icon-user-group"><a href="<%=path %>/toUsers" data-icon="icon-user-group" iframe="0">用户信息管理</a></li>
+                    <li iconCls="icon-users"><a href="<%=path %>/toDoctorList" data-icon="icon-users" class="menuA">医生资料审核管理</a></li>
+                    <li iconCls="comment_dull"><a href="<%=path %>/toUsers" data-icon="icon-user-group" iframe="0">用户信息管理</a></li>
                     </ul>
 			    </div>   
 			   <div title="首页管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">  	
-    			<ul class="easyui-tree wu-side-tree">
+    			<ul class="easyui-tree wu-side-tree"> 
                 	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">首页图片管理</a></li>
                     <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">免费自查管理</a></li>
                     <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">搜索标签管理</a></li>
                     <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">电话直播管理</a></li>
-                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">科室筛选管理</a></li>
+                    <li iconCls="icon-cog"><a href="<%=path %>/toDepartments" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">科室筛选管理</a></li>
                     <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">专家特诊项目管理</a></li>
                 	<li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">健康预警项目管理</a></li>
                 </ul>
@@ -78,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">用户诉讼</a></li>
                     <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">关于我们</a></li>
                     <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">版本更新管理</a></li>
-                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">日志管理</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="<%=path%>/toLoc" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">日志管理</a></li>
               		 <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">纠纷投诉管理</a></li>
                 	 <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">角色管理</a></li>
                
@@ -96,12 +95,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div title="联系我们" data-options="iconCls:'icon-chart-curve'" style="padding:5px;">  	
     			<ul class="easyui-tree wu-side-tree">
-                	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">微博</a></li>
-                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">微信公众号</a></li>
-                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">微博</a></li>
-                    <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">QQ</a></li>
-                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">邮箱</a></li>
-                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">网址导航</a></li>
+                	<li iconCls="icon-chart-organisation"><a href="<%=path %>/toTelephone" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">电话</a></li>
+                    <li iconCls="icon-users"><a href="<%=path %>/toMingPian" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">名片</a></li>
+                    <li iconCls="icon-user-group"><a href="<%=path %>/toMessage" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">微博</a></li>
+                    <li iconCls="icon-book"><a href="<%=path %>/toWeChat" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">微信公众号</a></li>
+                    <li iconCls="icon-cog"><a href="<%=path %>/toWifi" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">WiFi</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="<%=path %>/toMp4" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">视频导航</a></li>
                 </ul>
             </div>
         </div>

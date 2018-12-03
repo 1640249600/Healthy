@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.dao.LocMapper">
+ 		<resultMap type="loc" id="Loclist">
+ 			<result column="id" property="id"></result>
+ 			<result column="sid" property="sid"></result>
+ 			<result column="type" property="type"></result>
+ 			<result column="synopisis" property="synopisis"></result>
+ 			<result column="time" property="time"></result>
+ 			<association property="systemUser" javaType="su"> 
+ 					<result column="id" property="id"></result>
+ 					<result column="rid" property="rid"></result>
+ 					<result column="name" property="name"></result>
+ 					<result column="password" property="password"></result>
+ 			</association>
+ 		</resultMap>
+ 		<select id="getLocList" resultMap="Loclist" parameterType="int">
+ 				select * from
+ 				(select l.id,s.name,l.synopisis,l.time,l.type,rownum rownum_ from loc l left join  systemuser s on l.sid=s.id
+ 				where rownum &lt;=#{page} * #{rows}) where rownum_ &gt; (#{page}-1)* #{rows}
+ 		</select>
+ 		<!-- 获取总数 -->
+ 		<select id="countLoc" resultType="int">
+ 				select count(1) from loc
+ 		</select>
+ </mapper>

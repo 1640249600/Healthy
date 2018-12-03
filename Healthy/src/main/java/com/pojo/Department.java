@@ -1,6 +1,6 @@
 package com.pojo;
 
-public class department {
+public class Department {
 	private Integer id;
 	private String dname;
 	public Integer getId() {

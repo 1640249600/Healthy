@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.dao.DoctorListMapper">
+  		<resultMap type="doctor" id="doctorList">
+  				<result column="did" property="did"/>
+  				<result column="name" property="name"/>
+  				<result column="photo" property="photo"/>
+  				<result column="deptid" property="deptid"/>
+  				<result column="sid" property="sid"/>
+  				<result column="zid" property="zid"/>
+  				<result column="iid" property="iid"/>
+  				<result column="searchlable" property="searchlable"/>
+  				<result column="tjtime" property="tjtime"/>
+  				<result column="yizhen" property="yizhen"/>
+  				<result column="sex" property="sex"/>
+  				<result column="age" property="age"/>
+  				<result column="tel" property="tel"/>
+  				<result column="liuprice" property="liuprice"/>
+  				<result column="telprice" property="telprice"/>
+  				<result column="zfprice" property="zfprice"/>
+  				<result column="jianjie" property="jianjie"/>
+  				<result column="tijiaotime" property="tijiaotime"/>
+  				<result column="shid" property="shid"/>
+  				<result column="idcard" property="idcard"/>
+  				<result column="zigecard" property="zigecard"/>
+  				<result column="zhixingcard" property="zhixingcard"/>
+  				<result column="zigepicture" property="zigepicture"/>
+  				<result column="zhixingpicture" property="zhixingpicture"/>
+  				<result column="idcardpicture" property="idcardpicture"/>
+  				<result column="gongzuopicture" property="gongzuopicture"/>
+  		
+  		
+  				<association property="zhuangtai" javaType="ZT">
+  					<result column="zid" property="zid"></result>
+  					<result column="state" property="state"></result> 				
+  				</association>
+  				
+  				<association property="specialty" javaType="doctorSpecialty">
+  					<result column="sid" property="sid"></result>
+  					<result column="special" property="special"></result> 				
+  				</association>
+  				
+  				<association property="doctorIdentity" javaType="doctorIdentity">
+  					<result column="iid" property="iid"></result>
+  					<result column="position" property="position"></result> 				
+  				</association>
+  				
+  				<association property="dept" javaType="dept">
+  					<result column="id" property="id"></result>
+  					<result column="dname" property="dname"></result> 				
+  				</association>
+  				
+  				<association property="shenhe" javaType="shenhe">
+  					<result column="shid" property="zid"></result>
+  					<result column="checked" property="checked"></result> 				
+  				</association>
+  		
+  		</resultMap>
+  		
+  		
+  		<select id="getAllDoctor" resultMap="doctorList" parameterType="int">
+  			select * from
+  			(select did,name,photo,sex,tel,liuprice,tijiaotime,checked,rownum rownum_ 
+  			from DoctorList d left join shenhe s on d.shid=s.shid where rownum &lt;=#{page}*#{rows} and d.shid=0) 
+  			where rownum_ &gt;(#{page}-1)*#{rows} 
+  			
+  		</select>
+    
+  		<select id="findCount"  resultType="int">
+  		  				select count(1) from DoctorList
+  		</select>
+  		
+  		<!-- 添加医生信息 -->
+  		<insert parameterType="doctor" id="doctorAdd">
+  				insert into doctorlist (did,
+  				name,photo,sex,age,liuprice,
+  				tijiaotime,shid,tel,
+  				idcard,zigecard,zhixingcard,
+  				zigepicture,zhixingpicture,idcardpicture,gongzuopicture) 
+  				values (seq_Doctor.nextval,
+  				#{name},#{photo},#{sex},#{age},#{liuprice},
+  				sysdate,#{shid},#{tel},
+  				#{idcard},#{zigecard},#{zhixingcard},
+  				#{zigepicture},#{zhixingpicture},#{idcardpicture},#{gongzuopicture})
+  		
+  		</insert>
+  		
+  		<!-- //删除 -->
+  		
+  		<delete parameterType="int" id="doctorDel">
+  			delete from doctorlist where did = #{did}
+  		
+  		</delete>
+  		
+  		<!--修改的查询 -->
+  		
+  		<select parameterType="int" resultType="doctor" id="doctorUp">
+  		
+  			select did,
+  				name,photo,sex,age,liuprice,shid,tel,
+  				idcard,zigecard,zhixingcard,
+  				zigepicture,zhixingpicture,idcardpicture,gongzuopicture 
+  				from doctorlist 
+  				where did=#{did}
+  				
+  		
+  		</select>
+  		<update id="doctorUpdate" parameterType="doctor">
+  				update doctorlist set name=#{name},photo=#{photo},
+  				sex=#{sex},age=#{age},liuprice=#{liuprice},shid=#{shid},
+  				tel=#{tel},idcard=#{idcard},zigecard=#{zigecard},zhixingcard=#{zhixingcard},
+  				zigepicture=#{zigepicture},zhixingpicture=#{zhixingpicture},
+  				idcardpicture=#{idcardpicture},gongzuopicture=#{gongzuopicture} where did=#{did}
+  		</update>
+  </mapper>
+

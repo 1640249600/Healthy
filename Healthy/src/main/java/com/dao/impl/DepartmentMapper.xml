@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.dao.DepartmentMapper">
+  		<resultMap type="dept" id="departmentList">
+  			<result column="id" property="id" />
+  			<result column="name" property="name" />
+  		</resultMap>
+  		<select id="getDepartmentList" resultMap="departmentList" parameterType="int">
+  			select * from 
+  			(select id,dname,rownum rownum_ from DEPARTMENT where rownum &lt;= #{page} * #{rows}) where rownum_ &gt; (#{page} -  1) * #{rows}
+  		</select>
+  		<select id="countDepartment" resultType="int">
+  			select count(1) from department
+  		</select>
+  </mapper>
