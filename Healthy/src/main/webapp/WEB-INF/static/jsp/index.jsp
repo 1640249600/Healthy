@@ -59,6 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li iconCls="comment_dull"><a href="<%=path %>/toUsers" data-icon="icon-user-group" iframe="0">用户信息管理</a></li>
                     </ul>
 			    </div>   
+			    
 			   <div title="首页管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">  	
     			<ul class="easyui-tree wu-side-tree"> 
                 	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">首页图片管理</a></li>
