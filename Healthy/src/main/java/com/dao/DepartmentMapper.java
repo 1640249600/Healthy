@@ -1,4 +1,4 @@
-package com.dao;
+ package com.dao;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ public interface DepartmentMapper {
 	public List<Department> getDepartmentList(@Param(value="page")int page,@Param(value="rows")int rows);
 	//查询总数
 	public int countDepartment();
-}
+} 
 

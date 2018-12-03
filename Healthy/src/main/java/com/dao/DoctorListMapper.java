@@ -14,7 +14,6 @@ public interface DoctorListMapper {
 	public boolean doctorAdd(Doctorlist dd);
 	//删除
 	public boolean doctorDel(@Param(value="did")int did);
-	
 	//修改
 	public Doctorlist doctorUp(@Param(value="did")int did);
 	public boolean doctorUpdate(Doctorlist dd);

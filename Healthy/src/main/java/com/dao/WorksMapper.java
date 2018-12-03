@@ -11,6 +11,6 @@ public interface WorksMapper {
 	public List<Words> getWorks(@Param(value="page")int page,@Param(value="rows")int rows);
 	//统计所有信息
 	public int countWorks();
-	//增加 
+	//增加  
 	public boolean wordsAdd(Words ww);
 }

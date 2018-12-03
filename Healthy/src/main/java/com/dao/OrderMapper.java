@@ -13,7 +13,7 @@ public interface OrderMapper {
 	public int countOrders();
 	//添加
 	public boolean OrderAdd(Orders oo);
-	//删除
+	//删除 
 	public boolean OrderDelete(@Param(value="id")int id);
 	//修改(先查询)
 	public Orders OrdersSelect(@Param(value="id")int id);
