@@ -15,5 +15,6 @@ public class DoctotShenhe {
 	public void setChecked(String checked) {
 		this.checked = checked;
 	}
+	
 
 }

@@ -10,4 +10,5 @@ public interface SystemMapper {
 	public SystemUser sysFind(@Param(value="tel") String tel);
 	//修改密码
 	public boolean sysSetPass(SystemUser ss);
-}
+} 
+

@@ -7,7 +7,7 @@ import com.pojo.VBuy;
 
 public interface VBuyService {
 	
-	//分页
+	//分页 
 	public int findCount();
 
 	public List<VBuy> getAllVbuy(int page, int rows);

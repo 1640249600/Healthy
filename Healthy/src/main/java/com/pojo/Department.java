@@ -15,4 +15,5 @@ public class Department {
 	public void setDname(String dname) {
 		this.dname = dname;
 	}
+
 }

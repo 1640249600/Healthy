@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import com.pojo.Users;
 
 public interface UsersService {
-	//查询
+	//查询 
 	public List<Users> getUsers(int page, int rows);
 		//统计所有信息
 	public int countUsers();

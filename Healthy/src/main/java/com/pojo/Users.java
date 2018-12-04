@@ -9,9 +9,12 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 public class Users implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Zhuangtai zhuangtai;
 	private VBuy vbuy;
-	
 	private Integer id;
 	private String name;
 	private String telephone;

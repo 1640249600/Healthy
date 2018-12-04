@@ -24,7 +24,7 @@ public class VBuyAction {
 	public VBuyService getVbuyService() {
 		return vbuyService;
 	}
-
+ 
 	public void setVbuyService(VBuyService vbuyService) {
 		this.vbuyService = vbuyService;
 	}

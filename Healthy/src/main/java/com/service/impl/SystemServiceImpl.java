@@ -14,7 +14,7 @@ public class SystemServiceImpl implements SystemService {
 	private SystemMapper systemMapper;
 	public SystemMapper getSystemMapper() {
 		return systemMapper;
-	}
+	} 
 	public void setSystemMapper(SystemMapper systemMapper) {
 		this.systemMapper = systemMapper;
 	}

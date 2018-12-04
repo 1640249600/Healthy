@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.OrderMapper">
+	<resultMap type="or" id="orderFind">
+	<!--用户表 -->
+				<result column="id" property="id"></result>
+				<result column="userid" property="userId"></result>
+				<result column="ostate" property="ostate"></result>
+				<result column="doctorid" property="doctorId"></result>
+		 	
+			<association property="user" javaType="us">
+				<result column="id"  property="id"></result>
+    			<result column="vid"  property="vid"></result>
+    			<result column="zid"  property="zid"></result>
+    			<result column="name"  property="name"></result>
+    			<result column="telephone"  property="telephone"></result>
+    			<result column="evaluate"  property="evaluate"></result>
+    			<result column="sevaluate"  property="sevaluate"></result>
+    			<result column="devaluate"  property="devaluate"></result>
+    			<result column="addtime"  property="addtime"></result>
+    			<result column="hand"  property="hand"></result>
+    			<result column="sex"  property="sex"></result>
+    			<result column="birthday"  property="birthday"></result>
+    			<result column="wechat"  property="wechat"></result>
+    			<result column="eamil"  property="eamil"></result>
+    			<result column="address"  property="address"></result>
+    		<association property="vbuy" javaType="vbuy">
+					<result column="id" property="id"></result>
+  					<result column="grade" property="grade"></result>
+  					<result column="sixPrice" property="sixPrice"></result>
+  					<result column="twelvePrivce" property="twelvePrivce"></result>
+  					<result column="twentyfourPrice" property="twentyfourPrice"></result>
+  					<result column="thirtysixPrice" property="thirtysixPrice"></result>
+  					<result column="discount" property="discount"></result>
+			</association>
+			<association property="zhuangtai" javaType="ZT">
+  					<result column="zid" property="zid"></result>
+  					<result column="state" property="state"></result> 				
+  				</association>
+			</association>
+			<association property="doctor" javaType="doctor">
+  				<result column="did" property="did"/>
+  				<result column="name" property="name"/>
+  				<result column="photo" property="photo"/>
+  				<result column="deptid" property="deptid"/>
+  				<result column="sid" property="sid"/>
+  				<result column="zid" property="zid"/>
+  				<result column="iid" property="iid"/>
+  				<result column="searchlable" property="searchlable"/>
+  				<result column="tjtime" property="tjtime"/>
+  				<result column="yizhen" property="yizhen"/>
+  				<result column="sex" property="sex"/>
+  				<result column="age" property="age"/>
+  				<result column="tel" property="tel"/>
+  				<result column="liuprice" property="liuprice"/>
+  				<result column="telprice" property="telprice"/>
+  				<result column="zfprice" property="zfprice"/>
+  				<result column="jianjie" property="jianjie"/>
+  				<result column="tijiaotime" property="tijiaotime"/>
+  				<result column="shid" property="shid"/>
+  				<result column="idcard" property="idcard"/>
+  				<result column="zigecard" property="zigecard"/>
+  				<result column="zhixingcard" property="zhixingcard"/>
+  				<result column="zigepicture" property="zigepicture"/>
+  				<result column="zhixingpicture" property="zhixingpicture"/>
+  				<result column="idcardpicture" property="idcardpicture"/>
+  				<result column="gongzuopicture" property="gongzuopicture"/>
+  			</association>
+			
+	</resultMap>
+	<!-- id 就是方法名  	 parameterType为参数  	 resultType为返回结果类型    -->
+	<select id="getOrders" resultMap="orderFind" parameterType="int">
+		select * from
+		(select o.id,o.ostate,o.doctorid,o.userid,u.name,v.grade,z.zid,d.name as dname,v.thirtysix,rownum rownum_ from users u join doctorlist d on u.id=d.deptid join zhuangtai z on u.zid=z.zid join orders o on o.userid=u.id join vbuy v on v.id=u.vid
+		where rownum &lt;= #{page} * #{rows}) where rownum_ &gt; (#{page} -  1) * #{rows}
+	</select>
+	<select id="countOrders" resultType="int">
+		select count(1) from users
+	</select>
+	<!--增加 -->
+	<insert id="OrderAdd" parameterType="or">
+		insert into orders(id,userid,ostate,doctorid)values(seq_Orders,6,0,7)
+	</insert>
+	<!-- 删除 -->
+	<delete id="OrderDelete" parameterType="int">
+				
+	</delete>
+	<!-- 修改 -->
+		<select id="OrdersSelect" parameterType="int" resultType="or">
+				select * from orders where id=#{id}
+		</select>
+		<update id="OrdersUpdate" parameterType="or">
+		 		
+		</update>
+	<!-- 拼接查询 -->
+		<select id="rearchOrder" resultType="or">
+			<trim prefix="where" prefixOverrides="and|or">
+				<if test="id!=null">and id=#{id}</if>
+				<if test="doctorid!=null">and doctorid=#{doctorid}</if>
+			</trim>
+		</select>
+</mapper>

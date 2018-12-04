@@ -2,13 +2,13 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+ 
   <!--dao实现类  namespace一定写的是接口的名字  -->
   <mapper namespace="com.dao.VBuyDao">
   		<resultMap type="vbuy" id="vbuyList">
   				<result column="id" property="id"></result>
   				<result column="grade" property="grade"></result>
-  				<result column="sixPrice" property="sixPrice"></result>
+  	 			<result column="sixPrice" property="sixPrice"></result>
   				<result column="twelvePrivce" property="twelvePrivce"></result>
   				<result column="twentyfourPrice" property="twentyfourPrice"></result>
   				<result column="thirtysixPrice" property="thirtysixPrice"></result>

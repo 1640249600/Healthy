@@ -9,7 +9,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 public class VBuy {
 		private Integer id;
 		private Zhuangtai zhuangtai;
-		
+		 
 		private String grade;
 		private Integer sixPrice;
 		private Integer twelvePrivce;

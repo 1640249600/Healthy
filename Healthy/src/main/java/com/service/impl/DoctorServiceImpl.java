@@ -49,32 +49,32 @@ public void setDoctorListMapper(DoctorListMapper doctorListMapper) {
 		}
 		
 	}
-//添加
+	//添加
 	@Override
 	public boolean doctorAdd(Doctorlist dd) {
 		// TODO Auto-generated method stub
 		return doctorListMapper.doctorAdd(dd);
 	}
-//删除
+	//删除
 	@Override
 	public boolean doctorDel(int did) {
 		// TODO Auto-generated method stub
 		return doctorListMapper.doctorDel(did);
 	}
 
-	//修改
+	//医生审核修改查询
 	@Override
 	public Doctorlist doctorUp(int did) {
 		// TODO Auto-generated method stub
 		return doctorListMapper.doctorUp(did);
 	}
-
+	//医生审核更新
 	@Override
 	public boolean doctorUpdate(Doctorlist dd) {
 		// TODO Auto-generated method stub
 		return doctorListMapper.doctorUpdate(dd);
 	}
-
+	//医生审核倒表
 	@Override
 	public List<Doctorlist> getDoctor() {
 		// TODO Auto-generated method stub
@@ -98,13 +98,11 @@ public void setDoctorListMapper(DoctorListMapper doctorListMapper) {
 		// TODO Auto-generated method stub
 		return doctorListMapper.getXinBiaoDoctor();
 	}
-
+	//医生信息管理添加
 	@Override
 	public boolean doctorXinAdd(Doctorlist dd) {
 		// TODO Auto-generated method stub
 		return doctorListMapper.doctorXinAdd(dd);
 	}
-
-	
 
 }

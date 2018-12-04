@@ -25,5 +25,6 @@ public interface DoctorService {
 	//导出查找
 	public List<Doctorlist> getXinBiaoDoctor();
 	public boolean doctorXinAdd(Doctorlist dd);
+
 	
 }

@@ -10,7 +10,7 @@
 		<!-- 日志输出 -->
 		<setting name="logImpl" value="STDOUT_LOGGING" />
 	</settings>
-	
+	 
 	
 	<!--类型别名 -->
 	
@@ -26,5 +26,8 @@
 		<typeAlias type="com.pojo.Zhuangtai" alias="ZT" />
 		<typeAlias type="com.pojo.SystemUser" alias="su"/>
 		<typeAlias type="com.pojo.Users" alias="us"/>
+		<typeAlias type="com.pojo.Orders" alias="or"/>
+		<typeAlias type="com.pojo.Loc" alias="loc"/>
+		<typeAlias type="com.pojo.Words" alias="words"/>
 	</typeAliases>
 </configuration>

@@ -27,6 +27,7 @@ public interface DoctorListMapper {
 	public int getXinCount();
 	//导出查找
 	public List<Doctorlist> getXinBiaoDoctor();
+	//医生管理信息添加
 	public boolean doctorXinAdd(Doctorlist dd);
 	
 	

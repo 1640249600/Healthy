@@ -267,7 +267,7 @@ public class DoctorAction {
 		}
 		
 	}
-	
+	//审核信息倒表
 	@RequestMapping(value="/saveExcel")	
 	@ResponseBody
 	public String saveExcel(){
@@ -283,7 +283,7 @@ public class DoctorAction {
 		
 		
 	}
-	
+	//进入医生信息管理
 	@RequestMapping("/toDoctorXinXi")
 	public String toDoctorXinXi(){
 		return "DoctorXinXi";
@@ -379,11 +379,8 @@ public class DoctorAction {
 		
 	}
 	
+}	
 	
 	
 	
-	
-	
-	
-	
-}
+

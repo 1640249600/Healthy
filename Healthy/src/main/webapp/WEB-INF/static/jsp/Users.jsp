@@ -22,9 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <div class="easyui-layout" data-options="fit:true">
-    <div data-options="region:'west',border:true,split:true," title="用户管理" style="width:150px; padding:5px;">
-        <ul id="wu-category-tree" class="easyui-tree"></ul>
-    </div>
+   
     <div data-options="region:'center',border:false">
     	<!-- Begin of toolbar -->
         <div id="wu-toolbar">
@@ -179,12 +177,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				url:"toUsersList",
   				columns:[[
   					{field:'ck',width:50,checkbox:true},
-  					{field:'id',title:'账号',width:100,align:'center'},
-  					{field:'name',title:'昵称',width:100,align:'center'},
-  					{field:'grade',title:'身份',width:200,align:'center'},
-  					{field:'telephone',title:'电话',width:300,align:'center'},
-  					{field:'birthday',title:'出生日期',width:300,align:'center'},
-  					{field:'state',title:'状态',width:300,align:'center'},
+  					{field:'id',title:'账号',width:150,align:'center'},
+  					{field:'name',title:'昵称',width:150,align:'center'},
+  					{field:'grade',title:'身份',width:150,align:'center'},
+  					{field:'telephone',title:'电话',width:150,align:'center'},
+  					{field:'birthday',title:'出生日期',width:150,align:'center'},
+  					{field:'state',title:'状态',width:150,align:'center'},
   				]],
   				idField:'id',//创建表格必须加上;
   				//显示斑马线效果

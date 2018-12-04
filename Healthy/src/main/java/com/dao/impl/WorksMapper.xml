@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.WorksMapper">
+	<resultMap type="words" id="WorksList">
+		<result column="id" property="id"></result>
+		<result column="name" property="name"></result>
+		<result column="content" property="content"></result>
+		<result column="time" property="time"></result>
+	</resultMap> 
+	<select id="getWorks" resultMap="WorksList" parameterType="int">
+	 select * from
+	 (select id,name,content,time,rownum rownum_ from words where rownum &lt;=#{page} * #{rows}) where rownum_ &gt; (#{page}-1)* #{rows}
+	</select> 
+	<select id="countWorks" resultType="int">
+		select count(1) from Words
+	</select>
+	<insert id="wordsAdd" parameterType="words">
+		insert into words(id,name,content,time) values (#{id},#{name},#{content},#{time})
+	</insert>
+</mapper>    

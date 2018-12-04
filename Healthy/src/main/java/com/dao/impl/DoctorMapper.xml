@@ -123,6 +123,15 @@
   				idcardpicture=#{idcardpicture},gongzuopicture=#{gongzuopicture} where did=#{did}
   		</update>
   		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
   		<!-- 医生信息管理 -->
   		<select id="getXinDoctor" resultMap="doctorList" parameterType="int">
   			select * from
@@ -150,6 +159,7 @@
         	where d.shid=1 
   			 			
   		</select>
+  		<!-- 医生信息管理添加 -->
   		<insert id="doctorXinAdd" parameterType="doctor">
   				insert into doctorlist (did,
   				name,photo,deptid,sid,zid,shid,
@@ -161,25 +171,7 @@
   				#{telprice},#{iid},#{searchlable},
   				#{yizhen},#{liuprice})
   		</insert>
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
-  		
+
   		
   </mapper>
 

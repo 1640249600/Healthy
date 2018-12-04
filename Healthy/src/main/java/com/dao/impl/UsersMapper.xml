@@ -4,12 +4,12 @@
     <mapper namespace="com.dao.UserMapper">
     		<resultMap type="us" id="UseList">
     			<result column="id"  property="id"></result>
-    			<result column="vid"  property="vid"></result>
+     			<result column="vid"  property="vid"></result>
     			<result column="zid"  property="zid"></result>
     			<result column="name"  property="name"></result>
     			<result column="telephone"  property="telephone"></result>
     			<result column="evaluate"  property="evaluate"></result>
-    			<result column="sevaluate"  property="sevaluate"></result>
+     			<result column="sevaluate"  property="sevaluate"></result>
     			<result column="devaluate"  property="devaluate"></result>
     			<result column="addtime"  property="addtime"></result>
     			<result column="hand"  property="hand"></result>
