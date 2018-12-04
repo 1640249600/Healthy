@@ -91,6 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">预约管理</a></li>
                     <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">智能助手</a></li>
                     <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">医院信息</a></li>
+                	<li iconCls="icon-users"><a href="<%=path %>/toBaidu" data-icon="icon-application-osx-error" class="menuA">地址导航</a></li>
                 </ul>
             </div>
             <div title="联系我们" data-options="iconCls:'icon-chart-curve'" style="padding:5px;">  	
@@ -100,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">微博</a></li>
                     <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">QQ</a></li>
                     <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">邮箱</a></li>
-                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">网址导航</a></li>
+                    
                 </ul>
             </div>
         </div>
