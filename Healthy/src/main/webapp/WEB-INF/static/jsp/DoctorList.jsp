@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
     <title>My JSP 'DoctorList.jsp' starting page</title>
-   		<link rel="stylesheet" type="text/css" href="<%=path %>/static/themes/default/easyui.css" />
+   	<link rel="stylesheet" type="text/css" href="<%=path %>/static/themes/default/easyui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=path %>/static/css/wu.css" />
 	<link rel="stylesheet" type="text/css" href="<%=path %>/static/css/icon.css" />
 	<script type="text/javascript" src="<%=path %>/static/js/jquery-1.8.0.min.js"></script>
@@ -30,15 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		               	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" id="openAdd" plain="true">添加</a>
 			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" id="openEdit" plain="true">修改</a>
 			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" id="remove" plain="true">删除</a>
-			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" id="cancel1" plain="true">取消</a>
 			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" id="reload" plain="true">刷新</a>
-			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-print" id="openAdd3" plain="true">帮助</a>
-			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-help" id="openEdit4" plain="true">撤销</a>
-			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-undo" id="remove5" plain="true">重做</a>
-			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-redo" id="cancel6" plain="true">总计</a>
-			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-sum" id="reload7" plain="true">提示</a>
-			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-back" id="reload8" plain="true">保存</a>
-			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-tip" id="reload9" plain="true">剪切</a>
+			            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" id="save" plain="true">保存</a>
 		        	</div>
 		           
 		        </div>
@@ -151,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			</td>
     			<td style="width:200px;"></td>
     			<td style="width:200px;">
-    				<input type="button" value="保存" id="addDocQ"/>
+    				<input type="button" value="取消" id="addDocQ"/>
     			</td>
     		</tr>
     	</table>    
@@ -308,7 +301,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				pagePosition:"bottom",
   				//调整一页显示多少数据组件
   				pageList:[3,5,10]
- 			
   			});
   			
   			$("#openAdd").click(function(){
@@ -345,13 +337,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							}
 						}
 					});
-					// 关闭窗口
+						$('#DCTab').datagrid('unselectAll');
+						// 关闭窗口
 						$("#DC_win").window("close");
 						// 表格重新加载
 						$("#DCTab").datagrid("reload");
   			
   			
   			
+  			});
+  			$("#addDocQ").click(function(){
+  						$('#DCTab').datagrid('unselectAll');
+						// 关闭窗口
+						$("#DC_win").window("close");
+						// 表格重新加载
+						$("#DCTab").datagrid("reload");
   			});
   			
   			
@@ -467,7 +467,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						processData : false,
 						success:function(result){ 
 					    	if(result == true){
-							    	alert(result);
+							    	
 								        $.messager.alert({
 								        	title:'提示消息',
 								        	msg:"修改成功",
@@ -476,7 +476,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								        	});
 								  
 							}else{
-						    	alert(result);
+						    	
 										$.meesager.alert({
 											title:'提示消息' , 
 											msg:"修改失败",
@@ -505,6 +505,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						// 表格重新加载
 						$("#DCTab").datagrid("reload");
 			});
-  		});
+			$("#save").click(function(){
+				 $.ajax({
+						type: 'post' ,
+						url: "saveExcel",
+						data:null,
+						dataType:'json' ,
+						cache : false,
+						contentType : false,
+						processData : false,
+						success:function(result){ 
+					    	if(result == true){
+							    	
+						        $.messager.alert({
+						        	title:'提示消息',
+						        	msg:"倒表成功",
+						        	timeout:3000,
+						        	showType:'slide'
+						        	});
+								  
+							}else{
+								$.messager.alert({
+						    	    title:'提示消息',
+						        	msg:"倒表失败",
+						        	timeout:3000,
+						        	showType:'slide'
+						        	});
+							}
+						}
+					});
+  			});
+			
+		});
 </script>
 </html>

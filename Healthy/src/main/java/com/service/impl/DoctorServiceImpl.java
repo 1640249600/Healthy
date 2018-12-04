@@ -43,9 +43,11 @@ public void setDoctorListMapper(DoctorListMapper doctorListMapper) {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		DoctorService dd = (DoctorService) ctx.getBean("doctorService");
-		Doctorlist ld = dd.doctorUp(18);
+		List<Doctorlist> ds = dd.getXinDoctor(1, 2);
+		for (Doctorlist ld : ds) {
+			System.out.println(ld.getZhuangtai().getState());
+		}
 		
-		System.out.println(ld.getGongzuopicture());
 	}
 //添加
 	@Override
@@ -71,6 +73,36 @@ public void setDoctorListMapper(DoctorListMapper doctorListMapper) {
 	public boolean doctorUpdate(Doctorlist dd) {
 		// TODO Auto-generated method stub
 		return doctorListMapper.doctorUpdate(dd);
+	}
+
+	@Override
+	public List<Doctorlist> getDoctor() {
+		// TODO Auto-generated method stub
+		return doctorListMapper.getDoctor();
+	}
+	//医生信息管理
+	@Override
+	public List<Doctorlist> getXinDoctor(int page, int rows) {
+		// TODO Auto-generated method stub
+		return doctorListMapper.getXinDoctor(page,rows);
+	}
+
+	@Override
+	public int getXinCount() {
+		// TODO Auto-generated method stub
+		return doctorListMapper.getXinCount();
+	}
+	//医生信息倒表
+	@Override
+	public List<Doctorlist> getXinBiaoDoctor() {
+		// TODO Auto-generated method stub
+		return doctorListMapper.getXinBiaoDoctor();
+	}
+
+	@Override
+	public boolean doctorXinAdd(Doctorlist dd) {
+		// TODO Auto-generated method stub
+		return doctorListMapper.doctorXinAdd(dd);
 	}
 
 	

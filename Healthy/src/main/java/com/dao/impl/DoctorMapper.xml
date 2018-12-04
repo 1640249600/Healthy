@@ -70,7 +70,14 @@
   		</select>
     
   		<select id="findCount"  resultType="int">
-  		  				select count(1) from DoctorList
+  		  		select count(1) from DoctorList where shid=0
+  		</select>
+  		
+  		<!-- 倒表查询 -->
+  		<select id="getDoctor" resultType="doctor">
+  			
+  			select * from DoctorList where shid=0 
+  			 			
   		</select>
   		
   		<!-- 添加医生信息 -->
@@ -115,5 +122,64 @@
   				zigepicture=#{zigepicture},zhixingpicture=#{zhixingpicture},
   				idcardpicture=#{idcardpicture},gongzuopicture=#{gongzuopicture} where did=#{did}
   		</update>
+  		
+  		<!-- 医生信息管理 -->
+  		<select id="getXinDoctor" resultMap="doctorList" parameterType="int">
+  			select * from
+  			(select did,name,photo,de.dname,s.special,z.state,i.position,searchlable,tjtime,rownum rownum_ 
+  			from DoctorList d left join specialty s on s.sid = d.sid 
+        	left join department de on de.id = d.deptid 
+        	left join zhuangtai z on z.zid = d.zid 
+        	left join identify i on i.iid = d.iid 
+        	where rownum &lt;=#{page}*#{rows} and d.shid=1) 
+  			where rownum_ &gt;(#{page}-1)*#{rows}  		
+  		</select>
+  		
+  		<select id="getXinCount"  resultType="int">
+  		  		select count(1) from DoctorList where shid=1
+  		</select>
+  		
+  		<!-- 倒表查询 -->
+  		<select id="getXinBiaoDoctor" resultType="doctor">
+  			
+  			select did,name,de.dname,s.special,z.state,i.position,searchlable,tjtime,rownum rownum_ 
+  			from DoctorList d left join specialty s on s.sid = d.sid 
+        	left join department de on de.id = d.deptid 
+        	left join zhuangtai z on z.zid = d.zid 
+        	left join identify i on i.iid = d.iid 
+        	where d.shid=1 
+  			 			
+  		</select>
+  		<insert id="doctorXinAdd" parameterType="doctor">
+  				insert into doctorlist (did,
+  				name,photo,deptid,sid,zid,shid,
+  				tjtime,zfprice,jianjie,telprice,iid,
+  				searchlable,yizhen,liuprice) 
+  				values (seq_Doctor.nextval,
+  				#{name},#{photo},#{deptid},#{sid},#{zid},1,
+  				sysdate,#{zfprice},#{jianjie},
+  				#{telprice},#{iid},#{searchlable},
+  				#{yizhen},#{liuprice})
+  		</insert>
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
   </mapper>
 

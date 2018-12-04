@@ -21,6 +21,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.pojo.Doctorlist;
 import com.pojo.VBuy;
 import com.service.DoctorService;
+import com.util.Excel;
 import com.util.PubDate;
 
 @Controller
@@ -89,6 +90,7 @@ public class DoctorAction {
 		String zhixingcard = request.getParameter("zhixingcard");
 		String shid = request.getParameter("shid");
 		String tel = request.getParameter("tel");
+		//将所有属性封装到实体类
 		Doctorlist dd = new Doctorlist();
 		dd.setName(name);
 		dd.setSex(Integer.parseInt(sex));
@@ -106,7 +108,7 @@ public class DoctorAction {
 		dd.setZigepicture(name(zigepicture,path,request));
 		dd.setIdcardpicture(name(idcardpicture,path,request));
 		dd.setGongzuopicture(name(gongzuopicture,path,request));
-		
+		//上传
 		boolean falg = doctorService.doctorAdd(dd);
 		if (falg) {
 			return "true";
@@ -265,5 +267,123 @@ public class DoctorAction {
 		}
 		
 	}
+	
+	@RequestMapping(value="/saveExcel")	
+	@ResponseBody
+	public String saveExcel(){
+		
+		List<Doctorlist> dlist = doctorService.getDoctor();
+		
+		boolean falg = Excel.sure(dlist);
+		if (falg) {
+			return "true";
+		}else {
+			return "false";
+		}
+		
+		
+	}
+	
+	@RequestMapping("/toDoctorXinXi")
+	public String toDoctorXinXi(){
+		return "DoctorXinXi";
+	}
+	
+	@RequestMapping(value="/getXinBiaoDoctor")	
+	@ResponseBody
+	public String getXinBiaoDoctor(){
+		
+		List<Doctorlist> dlist = doctorService.getXinBiaoDoctor();
+		
+		boolean falg = Excel.sure1(dlist);
+		if (falg) {
+			return "true";
+		}else {
+			return "false";
+		}
+		
+		
+	}
+	
+	@RequestMapping("/getXinDoctor")
+	@ResponseBody
+	public String getXinDoctor(@RequestParam(value="page",required=false) String page,@RequestParam(value="rows",required=false) String rows){
+		
+		System.out.println(page+"---"+rows);
+		List<Doctorlist> vv = doctorService.getXinDoctor(Integer.parseInt(page),Integer.parseInt(rows));
+		System.out.println("这是ACTION层+遍历");
+		
+		JSONArray array = new JSONArray();
+		for (Doctorlist v : vv) {
+			JSONObject obj=new JSONObject();
+			obj.put("did", v.getDid());
+			obj.put("name", v.getName());
+			obj.put("photo", v.getPhoto());
+			obj.put("dname", v.getDept().getDname());
+			obj.put("special", v.getSpecialty().getSpecial());
+			obj.put("state", v.getZhuangtai().getState());
+			obj.put("position", v.getDoctorIdentity().getPosition());
+			obj.put("tjtime", PubDate.datToString(v.getTjtime()));
+			obj.put("searchlable", v.getSearchlable());
+			array.add(obj);
+		}
+		int total=doctorService.findCount();
+		String ul= "{\"total\":"+total+",\"rows\":"+array.toString()+"}";
+		return ul;
+	}
+	
+	//添加
+	@RequestMapping(value="doctorXinImport",method=RequestMethod.POST)
+	@ResponseBody
+	public String doctorXinImport(@RequestParam(value="photo",required=false)MultipartFile photo,
+			HttpServletRequest request) throws Exception{
+		//从jsp中获取所有非文件的属性
+		String name = request.getParameter("name");
+		String deptid = request.getParameter("deptid");
+		String sid = request.getParameter("sid");
+		String zid = request.getParameter("zid");
+		String zfprice = request.getParameter("zfprice");
+		String jianjie = request.getParameter("jianjie");
+		String telprice = request.getParameter("telprice");
+		String iid = request.getParameter("iid");
+		String searchlable = request.getParameter("searchlable");
+		String yizhen = request.getParameter("yizhen");
+		String liuprice = request.getParameter("liuprice");
+		Doctorlist dd = new Doctorlist();
+		dd.setName(name);
+		dd.setDeptid(Integer.parseInt(deptid));
+		dd.setSid(Integer.parseInt(sid));
+		dd.setZid(Integer.parseInt(zid));
+		dd.setZfprice(zfprice);
+		dd.setJianjie(jianjie);
+		dd.setTelprice(Integer.parseInt(telprice));
+		dd.setIid(Integer.parseInt(iid));
+		dd.setSearchlable(searchlable);
+		dd.setYizhen(Integer.parseInt(yizhen));
+		dd.setLiuprice(Integer.parseInt(liuprice));
+		String path = request.getServletContext().getRealPath("WEB-INF"+File.separator+"static"+File.separator+"upload");
+		System.out.println(path);
+		dd.setPhoto(name(photo,path,request));
+		
+		
+		boolean falg = doctorService.doctorXinAdd(dd);
+		if (falg) {
+			return "true";
+		}else {
+			return "false";
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
