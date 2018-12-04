@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.pojo.Users;
 import com.service.UsersService;
+import com.util.PubDate;
 
 @Controller
 public class UsersAction {
@@ -44,7 +45,7 @@ public Object toUsersList(@RequestParam(value="page",required=false)String page,
 		obj.put("name", users.getName());
 		obj.put("grade", users.getVbuy().getGrade());
 		obj.put("telephone", users.getTelephone());
-		obj.put("birthday", users.getBirthday());
+		obj.put("birthday",PubDate.datToString(users.getBirthday()));
 		obj.put("state", users.getZhuangtai().getZid());
 		array.add(obj);
 	}
