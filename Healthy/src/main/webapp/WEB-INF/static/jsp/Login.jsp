@@ -283,7 +283,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					dataType:'json', 	
 					type:"post",
 					success:function(flag){
-						alert(flag);
+						
 						if(flag==true){
 							alert("登录成功");
 							 location.href="<%=path%>/login"; 

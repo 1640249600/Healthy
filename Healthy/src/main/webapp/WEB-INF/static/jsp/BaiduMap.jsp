@@ -46,19 +46,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
 	var geolocation = new BMap.Geolocation();
-	/* // 开启SDK辅助定位
+	// 开启SDK辅助定位
 	geolocation.enableSDKLocation();
 	geolocation.getCurrentPosition(function(r){
 		if(this.getStatus() == BMAP_STATUS_SUCCESS){
 			var mk = new BMap.Marker(r.point);
 			map.addOverlay(mk);
 			map.panTo(r.point);
-			alert('您的位置：'+r.point.lng+','+r.point.lat);
+			
 		}
 		else {
 			alert('failed'+this.getStatus());
 		}        
-	}); */
+	});
 	// 开启浏览器定位
 	geolocation.getCurrentPosition(function(r){
 		if(this.getStatus() == BMAP_STATUS_SUCCESS){
