@@ -68,7 +68,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </div>
 	    <div class='login_fields__submit'>
 	      <input type='button' value='登录' id="login">
+	      <input type='button' value='忘记密码' id="wangji">
 	    </div>
+	    
 	  </div>
 	  <div class='success'>
 	  </div>
@@ -270,27 +272,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script language="javascript">
 		//登录
 		$(document).ready(function(){
-			alert("---");
-		$("#login").click(function(){
-		var logins=$("#system").serialize();
-		alert("---");
+				
+			$("#login").click(function(){
+			var logins=$("#system").serialize();
 			
-			$.ajax({
-				url:"<%=request.getContextPath()%>/Login1",
-				data:logins,
-				dataType:'json', 	
-				type:"post",
-				success:function(flag){
-					alert(flag);
-					if(flag==true){
-						alert("登录成功");
-						 location.href="<%=path%>/login"; 
-					}else{
-						alert("登录失败,请注册");
-						$("#pp").html("用户名或密码错误");	
-						}			
-				}
-			})
-		});
+				
+				$.ajax({
+					url:"<%=request.getContextPath()%>/Login1",
+					data:logins,
+					dataType:'json', 	
+					type:"post",
+					success:function(flag){
+						alert(flag);
+						if(flag==true){
+							alert("登录成功");
+							 location.href="<%=path%>/login"; 
+						}else{
+							alert("登录失败,请注册");
+							$("#pp").html("用户名或密码错误");	
+							}			
+					}
+				})
+			});
+			$("#wangji").click(function(){
+					location.href="<%=request.getContextPath()%>/miaodi";
+			});
 	});
 </script>

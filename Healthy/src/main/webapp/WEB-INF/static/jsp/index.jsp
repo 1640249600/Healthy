@@ -55,9 +55,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li iconCls="icon-users"><a href="<%=path %>/toDoctorList" class="menuA">医生资料审核管理</a></li>
                     <li iconCls="comment_dull"><a href="<%=path %>/toUsers" class="menuA">用户信息管理</a></li>
                     </ul>
-			    </div>   
+			    </div>
+			    
+			<div title="首页管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">  	
+    			<ul class="easyui-tree wu-side-tree"> 
+                	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">首页图片管理</a></li>
+                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">免费自查管理</a></li>
+                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">搜索标签管理</a></li>
+                    <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">电话直播管理</a></li>
+                    <li iconCls="icon-cog"><a href="<%=path %>/toDepartments" class="menuA">科室筛选管理</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">专家特诊项目管理</a></li>
+                	<li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">健康预警项目管理</a></li>
+                </ul>
+            </div>   
 			  
-            
+            <div title="系统管理" data-options="iconCls:'icon-cart'" style="padding:5px;">  	
+    			<ul class="easyui-tree wu-side-tree">
+                	<li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="../jsp/temp/layout-3.html" iframe="0">推送管理</a></li>
+                    <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="../jsp/temp/layout-3.html" iframe="0">系统用户管理</a></li>
+                    <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="../jsp/temp/layout-3.html" iframe="0">用户诉讼</a></li>
+                    <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="../jsp/temp/layout-3.html" iframe="0">关于我们</a></li>
+                    <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">版本更新管理</a></li>
+                    <li iconCls="icon-application-osx-error"><a href="<%=path%>/toLoc" class="menuA">日志管理</a></li>
+              		 <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../jsp/temp/layout-3.html" iframe="0">纠纷投诉管理</a></li>
+                	 <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="../jsp/temp/layout-3.html" iframe="0">角色管理</a></li>
+               
+                </ul>
+            </div>
             <div title="联系我们" data-options="iconCls:'icon-chart-curve'" style="padding:5px;">  	
     			<ul class="easyui-tree wu-side-tree">
                 	<li iconCls="icon-chart-organisation"><a href="<%=path %>/toTelephone" data-icon="icon-chart-organisation" class="menuA">电话</a></li>

@@ -331,6 +331,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}
 					});
   			});
+  			//倒表
+  			$("#save").click(function(){
+				 $.ajax({
+						type: 'post' ,
+						url: "getXinBiaoDoctor",
+						data:null,
+						dataType:'json' ,
+						cache : false,
+						contentType : false,
+						processData : false,
+						success:function(result){ 
+					    	if(result == true){
+							    	
+						        $.messager.alert({
+						        	title:'提示消息',
+						        	msg:"倒表成功",
+						        	timeout:3000,
+						        	showType:'slide'
+						        	});
+								  
+							}else{
+								$.messager.alert({
+						    	    title:'提示消息',
+						        	msg:"倒表失败",
+						        	timeout:3000,
+						        	showType:'slide'
+						        	});
+							}
+						}
+					});
+  			});
 		});
 </script>
 </html>

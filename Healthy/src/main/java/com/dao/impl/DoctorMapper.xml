@@ -149,7 +149,7 @@
   		</select>
   		
   		<!-- 倒表查询 -->
-  		<select id="getXinBiaoDoctor" resultType="doctor">
+  		<select id="getXinBiaoDoctor" resultMap="doctorList">
   			
   			select did,name,de.dname,s.special,z.state,i.position,searchlable,tjtime,rownum rownum_ 
   			from DoctorList d left join specialty s on s.sid = d.sid 

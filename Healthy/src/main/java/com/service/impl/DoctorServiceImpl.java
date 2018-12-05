@@ -43,9 +43,9 @@ public void setDoctorListMapper(DoctorListMapper doctorListMapper) {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		DoctorService dd = (DoctorService) ctx.getBean("doctorService");
-		List<Doctorlist> ds = dd.getXinDoctor(1, 2);
+		List<Doctorlist> ds = dd.getXinBiaoDoctor();
 		for (Doctorlist ld : ds) {
-			System.out.println(ld.getZhuangtai().getState());
+			System.out.println(ld.getDept().getDname());
 		}
 		
 	}

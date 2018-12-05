@@ -104,7 +104,7 @@ public class Excel {
 			//创建一个工作表
 			HSSFSheet sheet = workbook.createSheet();
 			//设置工作表的序号，名字，编码
-			workbook.setSheetName(0, "日志",HSSFWorkbook.ENCODING_UTF_16);
+			workbook.setSheetName(0, "医生信息",HSSFWorkbook.ENCODING_UTF_16);
 			//创建一行
 			/*ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			DoctorService dd = (DoctorService) ctx.getBean("doctorService");

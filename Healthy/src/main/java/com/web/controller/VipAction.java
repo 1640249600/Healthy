@@ -35,6 +35,7 @@ public class VipAction {
 		return "miaodi";
 	}
 	
+	
 	//跳转地图页面
 		@RequestMapping("/toBaidu")
 		public String baidu(){
